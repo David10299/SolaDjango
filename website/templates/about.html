@@ -1,0 +1,1232 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <style>
+   :root {
+  --color-default: #212529;
+  --color-default-rgb: 33, 37, 41;
+  --color-background: #ffffff;
+  --color-background-rgb: 255, 255, 255;
+  --color-primary: #e84545;
+  --color-primary-rgb: 232, 69, 69;
+  --color-secondary: #32353a;
+  --color-secondary-rgb: 50, 53, 58;
+  --color-box-background: #ffffff;
+  --color-box-background-rgb: 255, 255, 255;
+  --color-inverse: #ffffff;
+  --color-inverse-rgb: 255, 255, 255;
+}
+.section-title {
+  text-align: center;
+  padding-bottom: 60px;
+}
+
+.section-title h2 {
+  color: var(--color-secondary);
+  font-size: 32px;
+  font-weight: 700;
+  position: relative;
+}
+
+.section-title h2:before,
+.section-title h2:after {
+  content: "";
+  width: 50px;
+  height: 2px;
+  background: var(--color-primary);
+  display: inline-block;
+}
+
+.section-title h2:before {
+  margin: 0 15px 10px 0;
+}
+
+.section-title h2:after {
+  margin: 0 0 10px 15px;
+}
+
+.section-title p {
+  margin-bottom: 0;
+}
+.review-title {
+  text-align: center;
+  
+}
+
+.review-title h2 {
+  color: var(--color-secondary);
+  font-size: 32px;
+  font-weight: 700;
+  position: relative;
+  margin-top:5rem;
+}
+
+.review-title h2:before,
+.review-title h2:after {
+  content: "";
+  width: 50px;
+  height: 2px;
+  background: #ffcca8;
+  display: inline-block;
+}
+
+.review-title h2:before {
+  margin: 0 15px 10px 0;
+}
+
+.review-title h2:after {
+  margin: 0 0 10px 15px;
+}
+
+.review-title p {
+  margin-bottom: 0;
+}
+
+      .faq .content h3 {
+         color: var(--color-secondary);
+         font-weight: 400;
+         font-size: 34px;
+       }
+       
+       .faq .content p {
+         font-size: 15px;
+         color: rgba(var(--color-default-rgb), 0.7);
+       }
+       
+       .faq .faq-container .faq-item {
+         position: relative;
+         padding: 20px;
+         margin-bottom: 20px;
+         box-shadow: 0px 5px 25px 0px rgba(var(--color-default-rgb), 0.1);
+         overflow: hidden;
+       }
+       
+       .faq .faq-container .faq-item:last-child {
+         margin-bottom: 0;
+       }
+       
+       .faq .faq-container .faq-item h3 {
+         color: var(--color-secondary);
+         font-weight: 600;
+         font-size: 18px;
+         line-height: 24px;
+         margin: 0 30px 0 0;
+         transition: 0.3s;
+         cursor: pointer;
+         display: flex;
+         align-items: flex-start;
+       }
+       
+       .faq .faq-container .faq-item h3 .num {
+         color: var(--color-primary);
+         padding-right: 5px;
+       }
+       
+       .faq .faq-container .faq-item h3:hover {
+         color: var(--color-primary);
+       }
+       
+       .faq .faq-container .faq-item .faq-content {
+         display: grid;
+         grid-template-rows: 0fr;
+         transition: 0.3s ease-in-out;
+         visibility: hidden;
+         opacity: 0;
+       }
+       
+       .faq .faq-container .faq-item .faq-content p {
+         margin-bottom: 0;
+         overflow: hidden;
+       }
+       
+       .faq .faq-container .faq-item .faq-toggle {
+         position: absolute;
+         top: 20px;
+         right: 20px;
+         font-size: 16px;
+         line-height: 0;
+         transition: 0.3s;
+         cursor: pointer;
+       }
+       
+       .faq .faq-container .faq-item .faq-toggle:hover {
+         color: var(--color-primary);
+       }
+       
+       .faq .faq-container .faq-active h3 {
+         color: var(--color-primary);
+       }
+       
+       .faq .faq-container .faq-active .faq-content {
+         grid-template-rows: 1fr;
+         visibility: visible;
+         opacity: 1;
+         padding-top: 10px;
+       }
+       
+       .faq .faq-container .faq-active .faq-toggle {
+         transform: rotate(90deg);
+         color: var(--color-primary);
+       }
+       /* Features Section - Home Page
+------------------------------*/
+.features .features-item {
+  color: rgba(var(--color-default-rgb), 0.8);
+}
+
+.features .features-item+.features-item {
+  margin-top: 100px;
+}
+
+@media (max-width: 768px) {
+  .features .features-item+.features-item {
+    margin-top: 40px;
+  }
+}
+
+.features .features-item h3 {
+  color: var(--color-secondary);
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.features .features-item .btn-get-started {
+  background-color: var(--color-primary);
+  color: var(--color-inverse);
+  padding: 8px 30px 10px 30px;
+  border-radius: 4px;
+}
+
+.features .features-item .btn-get-started:hover {
+  background-color: rgba(var(--color-primary-rgb), 0.9);
+}
+
+.features .features-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.features .features-item ul li {
+  padding-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.features .features-item ul li:last-child {
+  padding-bottom: 0;
+}
+
+.features .features-item ul i {
+  font-size: 20px;
+  padding-right: 4px;
+  color: var(--color-primary);
+}
+
+.features .features-item img {
+  border: 6px solid var(--color-box-background);
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+.features .features-item .features-img-bg {
+  position: relative;
+  min-height: 500px;
+}
+
+@media (max-width: 640px) {
+  .features .features-item .features-img-bg {
+    min-height: 300px;
+  }
+}
+
+.features .features-item .features-img-bg img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.features .features-item .image-stack {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.features .features-item .image-stack .stack-back {
+  grid-column: 4/-1;
+  grid-row: 1;
+  width: 100%;
+  z-index: 1;
+}
+
+.features .features-item .image-stack .stack-front {
+  grid-row: 1;
+  grid-column: 1/span 8;
+  margin-top: 20%;
+  width: 100%;
+  z-index: 2;  
+}
+.breadcrumb-section{
+    position: relative;
+    margin-top: 81px;
+    background-image: url(https://images.unsplash.com/photo-1515511856280-7b23f68d2996?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fHdhbGwlMjB3aGl0ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom:5rem;
+}
+@media (max-width: 991px) {
+    .breadcrumb-section {
+        margin-top: 0;
+    }
+  }
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     
+    z-index: 1; 
+}
+
+.container {
+    position: relative;
+    z-index: 2; /* This ensures the text appears above the overlay */
+}
+.square {
+    position: relative;
+    width: 50%;
+    overflow: hidden;
+}
+
+.square img {
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 768px) {
+    .square {
+        width: 100%;
+    }
+}
+#about-section {
+  background: rgb(248, 243, 241);
+    position: relative;
+}
+
+.blockabout {
+    padding: 20px;
+    background: white;
+}
+
+.blockabout-inner {
+    padding: 30px;
+    border: 1px solid rgba(32, 33, 36, 0.1);
+}
+
+.sosmed-horizontal a i {
+    border: 1px solid #070707;
+    border-radius: 50%;
+    color: #070707;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    margin: auto 3px;
+    font-size: 15px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.rey-btn {
+    border: 2px solid #070707;
+    padding: 10px 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 0; 
+    transition: all 0.3s;
+}
+.business-section {
+	align-items: center;
+	background: #E3E3E3;
+	display: flex;
+	justify-content: center;
+}
+
+.slider {
+	background: white;
+	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+	height: 100px;
+	margin: auto;
+	overflow:hidden;
+	position: relative;
+	width: 960px;
+}
+
+.slider::before,
+.slider::after {
+	background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+	content: "";
+	height: 100px;
+	position: absolute;
+	width: 200px;
+	z-index: 2;
+}
+
+.slider::after {
+	right: 0;
+	top: 0;
+	transform: rotateZ(180deg);
+}
+
+.slider::before {
+	left: 0;
+	top: 0;
+}
+
+.slider .slide-track {
+	animation: scroll 40s linear infinite;
+	display: flex;
+	width: calc(250px * 14);
+}
+
+.slider .slide {
+	height: 100px;
+	width: 250px;
+}
+
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-250px * 7))}
+}
+.carousel-section {
+  position: relative;
+  width: 100%;
+  min-height: 46vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  width: 300px;
+  height: 400px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: self-start;
+}
+
+.swiper-slide-active {
+  filter: blur(0px);
+}
+
+.swiper-pagination-bullet,
+.swiper-pagination-bullet-active {
+  background: #fff;
+}
+
+.swiper-slide span {
+  text-transform: uppercase;
+  color: #fff;
+  background: #1b7402;
+  padding: 7px 18px 7px 25px;
+  display: inline-block;
+  border-radius: 0 20px 20px 0px;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+.swiper-slide--one span {
+  background: #62667f;
+}
+
+.swiper-slide--two span {
+  background: #087ac4;
+}
+
+.swiper-slide--three span {
+  background: #b45205;
+}
+
+.swiper-slide--four span {
+  background: #087ac4;
+}
+
+.swiper-slide h2 {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  padding: 25px 45px 0 25px;
+}
+
+.swiper-slide p {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  padding: 0 25px 35px 25px;
+}
+
+.swiper-slide svg {
+  color: #fff;
+  width: 22px;
+  height: 22px;
+  margin-right: 7px;
+}
+
+.swiper-slide--one {
+  background: url({% static 'website/images/google1.png' %})
+      no-repeat 50% 50% / cover;
+}
+
+.swiper-slide--two {
+  background: url({% static 'website/images/google2.png' %})
+      no-repeat 50% 50% / cover;
+}
+
+.swiper-slide--three {
+  background:url({% static 'website/images/google3.png' %})
+      no-repeat 50% 50% / cover;
+}
+
+.swiper-slide--four {
+  background: url({% static 'website/images/google4.png' %})
+      no-repeat 50% 50% / cover;
+}
+
+.swiper-slide--five {
+  background: url({% static 'website/images/google5.png' %})
+      no-repeat 50% 50% / cover;
+}
+.swiper-slide--six {
+  background: url({% static 'website/images/google6.png' %})
+      no-repeat 50% 50% / cover;
+}
+
+.swiper-3d .swiper-slide-shadow-left,
+.swiper-3d .swiper-slide-shadow-right {
+  background-image: none;
+}
+.feature-box-1 {
+  padding: 32px;
+  box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+  margin: 15px 0;
+  position: relative;
+  z-index: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  -moz-transition: ease all 0.35s;
+  -o-transition: ease all 0.35s;
+  -webkit-transition: ease all 0.35s;
+  transition: ease all 0.35s;
+  top: 0;
+}
+.feature-box-1 * {
+  -moz-transition: ease all 0.35s;
+  -o-transition: ease all 0.35s;
+  -webkit-transition: ease all 0.35s;
+  transition: ease all 0.35s;
+}
+.feature-box-1 .icon {
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  background: #f7876e;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 50%;
+  margin-bottom: 22px;
+  font-size: 27px;
+}
+.feature-box-1 .icon i {
+  line-height: 70px;
+}
+.feature-box-1 h5 {
+  color: #20247b;
+  font-weight: 600;
+}
+.feature-box-1 p {
+  margin: 0;
+}
+.feature-box-1:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: auto;
+  right: 0;
+  border-radius: 10px;
+  width: 0;
+  
+  z-index: -1;
+  -moz-transition: ease all 0.35s;
+  -o-transition: ease all 0.35s;
+  -webkit-transition: ease all 0.35s;
+  transition: ease all 0.35s;
+}
+.feature-box-1:hover {
+  top: -5px;
+}
+.feature-box-1:hover h5 {
+  color: black;
+}
+.feature-box-1:hover p {
+  color: black(255, 255, 255, 0.8);
+}
+.feature-box-1:hover:after {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  left: 0;
+  right: auto;
+}
+.section {
+    padding: 100px 0;
+    position: relative;
+}
+.section-title {
+    padding-bottom: 45px;
+}
+.section-title h2 {
+    font-weight: 700;
+    color: #20247b;
+    font-size: 45px;
+    margin: 0 0 15px;
+    border-left: 5px solid #fc5356;
+    padding-left: 15px;
+}
+.icon img {
+    width: 42px;  /* adjust as needed */
+    height: 42px;  /* adjust as needed */
+}
+   </style>
+  </head>
+  <body>
+
+    <section class="breadcrumb-section">
+      <div class="overlay"></div> <!-- Add this line -->
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">About Us</li>
+          </ol>
+        </nav>
+        <h1>About Us</h1>
+      </div>
+    </section>
+
+
+    
+ <!-- About Me -->
+  <section id="about-section" class="pt-5 pb-5">
+    <div class="container wrapabout">
+        <div class="red"></div>
+        <div class="row">
+            <div class="col-lg-6 align-items-center justify-content-left d-flex mb-5 mb-lg-0">
+                <div class="blockabout">
+                    <div class="blockabout-inner text-sm-start">
+                        <div class="title-big">
+                            <h3>About Me</h3>
+                        </div>
+                        <p class="description-p text-muted pe-0 pe-lg-0">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quas optio reiciendis deleniti voluptatem facere sequi, quia, est sed dicta aliquid quidem facilis culpa iure perferendis? Dolor ad quia deserunt.
+                        </p>
+                        
+                        <div class="sosmed-horizontal pt-3 pb-3">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                        <a href="#" class="btn rey-btn mt-3">See More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-5 mt-lg-0">
+                <figure class="potoaboutwrap">
+                    <img src="https://images.unsplash.com/photo-1585497115342-e129d5e533ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8U3BhbmlzaCUyMGdpcmx8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60" alt="potoabout" />
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- About Me -->
+
+<section class="section services-section" id="services">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-6">
+              <div class="section-title">
+                  <h2>What I Do</h2>
+                  <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites</p>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <!-- feaure box -->
+          <div class="col-sm-6 col-lg-4">
+            <div class="feature-box-1">
+                <div class="icon">
+                    <img src="{% static 'website/images/wax.png' %}" alt="Wax icon">
+                </div>
+                <div class="feature-content">
+                    <h5>Unique design</h5>
+                    <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites.</p>
+                </div>
+            </div>
+        </div>
+          <!-- / -->
+          <!-- feaure box -->
+          <div class="col-sm-6 col-lg-4">
+              <div class="feature-box-1">
+                  <div class="icon">
+                      <img src="{% static 'website/images/wax2.png' %}" alt="">
+                  </div>
+                  <div class="feature-content">
+                      <h5>Different Layout</h5>
+                      <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites.</p>
+                  </div>
+              </div>
+          </div>
+          <!-- / -->
+          <!-- feaure box -->
+          <div class="col-sm-6 col-lg-4">
+              <div class="feature-box-1">
+                  <div class="icon">
+                      <i class="fa fa-comment"></i>
+                  </div>
+                  <div class="feature-content">
+                      <h5>Make it Simple</h5>
+                      <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites.</p>
+                  </div>
+              </div>
+          </div>
+          <!-- / -->
+          <!-- feaure box -->
+          <div class="col-sm-6 col-lg-4">
+              <div class="feature-box-1">
+                  <div class="icon">
+                      <i class="fa fa-image"></i>
+                  </div>
+                  <div class="feature-content">
+                      <h5>Responsiveness</h5>
+                      <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites.</p>
+                  </div>
+              </div>
+          </div>
+          <!-- / -->
+          <!-- feaure box -->
+          <div class="col-sm-6 col-lg-4">
+              <div class="feature-box-1">
+                  <div class="icon">
+                      <i class="fa fa-th"></i>
+                  </div>
+                  <div class="feature-content">
+                      <h5>Testing for Perfection</h5>
+                      <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites.</p>
+                  </div>
+              </div>
+          </div>
+          <!-- / -->
+          <!-- feaure box -->
+          <div class="col-sm-6 col-lg-4">
+              <div class="feature-box-1">
+                  <div class="icon">
+                      <i class="fa fa-cog"></i>
+                  </div>
+                  <div class="feature-content">
+                      <h5>Advanced Options</h5>
+                      <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites.</p>
+                  </div>
+              </div>
+          </div>
+          <!-- / -->
+      </div>
+  </div>
+</section>
+
+<!-- Brand Section -->
+
+<div class="slider">
+	<div class="slide-track">
+		<div class="slide">
+			<img src="{% static 'website/images/greenlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="{% static 'website/images/furlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="{% static 'website/images/sweetlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="{% static 'website/images/bryghtlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="{% static 'website/images/greenlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+    <div class="slide">
+			<img src="{% static 'website/images/furlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="{% static 'website/images/sweetlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="{% static 'website/images/bryghtlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="{% static 'website/images/greenlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="{% static 'website/images/furlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+	</div>
+</div>
+
+<!-- Brand Section -->
+
+<div class="container review-title" data-aos="fade-up">
+  <h2>See What Our Clients Have To Say</h2>
+</div><!-- End Section Title -->
+<section class ="carousel-section">
+
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide swiper-slide--one">
+       
+      </div>
+      <div class="swiper-slide swiper-slide--two">
+       
+      </div>
+
+      <div class="swiper-slide swiper-slide--three">
+       
+      </div>
+
+      <div class="swiper-slide swiper-slide--four">
+      
+      </div>
+
+      <div class="swiper-slide swiper-slide--five">
+       
+      </div>
+
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+ <!-- Features Section - Home Page -->
+ <section id="features" class="features">
+
+  <!--  Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Features</h2>
+    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+  </div><!-- End Section Title -->
+  <div class="container">
+    <div class="row gy-4 align-items-center features-item">
+      <div class="col-lg-5 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+        <h3>Corporis temporibus maiores provident</h3>
+        <p>
+          Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+        </p>
+        <a href="#" class="btn btn-get-started">Get Started</a>
+      </div>
+      <div class="col-lg-7 order-1 order-lg-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+        <div class="image-stack">
+          <img src="{% static 'website/images/features-light-1.jpg' %}" alt="" class="stack-front">
+          <img src="{% static 'website/images/features-light-2.jpg' %}" alt="" class="stack-back">
+        </div>
+      </div>
+    </div><!-- Features Item -->
+    <div class="row gy-4 align-items-stretch justify-content-between features-item ">
+      <div class="col-lg-6 d-flex align-items-center features-img-bg" data-aos="zoom-out">
+        <img src="{% static 'website/images/features-light-3.jpg' %}" class="img-fluid" alt="">
+      </div>
+      <div class="col-lg-5 d-flex justify-content-center flex-column" data-aos="fade-up">
+        <h3>Sunt consequatur ad ut est nulla</h3>
+        <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.</p>
+        <ul>
+          <li><i class="bi bi-check"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
+          <li><i class="bi bi-check"></i><span> Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
+          <li><i class="bi bi-check"></i> <span>Facilis ut et voluptatem aperiam. Autem soluta ad fugiat</span>.</li>
+        </ul>
+        <a href="#" class="btn btn-get-started align-self-start">Get Started</a>
+      </div>
+    </div><!-- Features Item -->
+  </div>
+</section>
+<!-- End Features Section -->
+
+
+<!-- Faq Section - Home Page -->
+    <section id="faq" class="faq">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="content px-xl-5">
+              <h3><span>Frequently Asked </span><strong>Questions</strong></h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="faq-container">
+              <div class="faq-item faq-active">
+                <h3><span class="num">1.</span> <span>Non consectetur a erat nam at lectus urna duis?</span></h3>
+                <div class="faq-content">
+                  <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3><span class="num">2.</span> <span>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</span></h3>
+                <div class="faq-content">
+                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3><span class="num">3.</span> <span>Dolor sit amet consectetur adipiscing elit pellentesque?</span></h3>
+                <div class="faq-content">
+                  <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3><span class="num">4.</span> <span>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</span></h3>
+                <div class="faq-content">
+                  <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <h3><span class="num">5.</span> <span>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</span></h3>
+                <div class="faq-content">
+                  <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- End Faq Section -->
+
+
+   
+    <section class="ftco-section">
+      <div class="container-xl">
+        <div class="row g-lg-5">
+          <div class="col-md-6 order-md-last heading-section d-flex align-items-center" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+            <div class="mt-0 my-lg-5 py-5">
+              <span class="subheading">Kayelux Beauty Salon</span>
+              <h2 class="mb-4">Beauty Anywhere Anytime</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+              <p class="mt-4"><a href="#" class="btn btn-white py-3 px-4">Our services</a> <a href="#" class="btn btn-primary py-3 px-4">Make An Appointment</a></p>
+            </div>
+          </div>
+          <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+            <div class="img img-about" style="background-image: url({% static 'website/images/about.jpg' %})">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  
+    
+
+    
+    <section class="ftco-appointment img" style="background-image: url({% static 'website/images/bg_2.jpg' %})">
+      <div class="overlay"></div>
+      <div class="container-xl">
+        <div class="row">
+          <div class="col-lg-6 d-flex align-items-center align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <form action="#" class="appointment aside-stretch">
+              <span class="subheading">Beauty Appointment</span>
+              <h2 class="mb-4 appointment-head">Make An Appointment</h2>
+              <div class="row">
+                <div class="col-md-12 col-lg-6">
+                  <div class="form-group">
+                    <label for="name">Your Full Name</label>
+                    <input type="text" class="form-control" placeholder="Your Full Name">
+                  </div>
+                </div>
+                <div class="col-md-12 col-lg-6">
+                  <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="text" class="form-control" placeholder="Email">
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="subject">Select Subject</label>
+                    <div class="form-field">
+                      <div class="select-wrap">
+                        <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                        <select name="" id="" class="form-control">
+                          <option value="">Beauty Massage</option>
+                          <option value="">Facial Massage</option>
+                          <option value="">Skin Care</option>
+                          <option value="">Makeup</option>
+                          <option value="">Others</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="name">Message</label>
+                    <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <input type="submit" value="Send message" class="btn btn-primary py-3 px-4 rounded">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section testimony-section bg-light">
+      <div class="container-xl">
+        <div class="row justify-content-center pb-4">
+          <div class="col-lg-7 text-center heading-section" data-aos="fade-up" data-aos-duration="1000">
+            <span class="subheading">Testimonial</span>
+            <h2 class="mb-5">What Customers Saying</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
+            <div class="carousel-testimony">
+              <div class="item">
+                <div class="testimony-wrap">
+                  <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></div>
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                      <div class="user-img" style="background-image: url({% static 'website/images/person_1.jpg' %})"></div>
+                      <div class="ps-3">
+                        <p class="name">Roger Scott</p>
+                        <span class="position">Marketing Manager</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap">
+                  <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></div>
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                      <div class="user-img" style="background-image: url({% static 'website/images/person_2.jpg' %})"></div>
+                      <div class="ps-3">
+                        <p class="name">Roger Scott</p>
+                        <span class="position">Marketing Manager</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap">
+                  <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></div>
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                      <div class="user-img" style="background-image: url({% static 'website/images/person_3.jpg' %})"></div>
+                      <div class="ps-3">
+                        <p class="name">Roger Scott</p>
+                        <span class="position">Marketing Manager</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap">
+                  <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></div>
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                      <div class="user-img" style="background-image: url({% static 'website/images/person_4.jpg' %})"></div>
+                      <div class="ps-3">
+                        <p class="name">Roger Scott</p>
+                        <span class="position">Marketing Manager</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap">
+                  <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-quote-left"></div>
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                      <div class="user-img" style="background-image: url({% static 'website/images/person_2.jpg' %})"></div>
+                      <div class="ps-3">
+                        <p class="name">Roger Scott</p>
+                        <span class="position">Marketing Manager</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="ftco-footer img" style="background-image: url({% static 'website/images/bg_3.jpg' %})">
+      <div class="overlay"></div>
+      <div class="container-xl">
+        <div class="row mb-5 justify-content-between">
+          <div class="col-md-6 col-lg">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2 logo d-flex">
+                <a class="navbar-brand" href="index.html">
+                    Kayelux <span>Beauty Salon</span>
+                </a>
+              </h2>
+              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+              <ul class="ftco-footer-social mt-4">
+                <li><a href="#"><span class="fa fa-twitter"></span></a></li>
+                <li><a href="#"><span class="fa fa-facebook"></span></a></li>
+                <li><a href="#"><span class="fa fa-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Services</h2>
+              <div class="d-md-flex">
+                <ul class="list-unstyled w-100">
+                  <li><a href="#"><span class="ion ion-ios-arrow-round-forward me-2"></span>Beauty Massage</a></li>
+                  <li><a href="#"><span class="ion ion-ios-arrow-round-forward me-2"></span>Facial Therapy</a></li>
+                  <li><a href="#"><span class="ion ion-ios-arrow-round-forward me-2"></span>Skin Care</a></li>
+                  <li><a href="#"><span class="ion ion-ios-arrow-round-forward me-2"></span>Parlor &amp; Beauty</a></li>
+                </ul>
+                <ul class="list-unstyled w-100">
+                  <li><a href="#"><span class="ion ion-ios-arrow-round-forward me-2"></span>Eye Shadow</a></li>
+                  <li><a href="#"><span class="ion ion-ios-arrow-round-forward me-2"></span>Relaxation Room</a></li>
+                  <li><a href="#"><span class="ion ion-ios-arrow-round-forward me-2"></span>Makeup</a></li>
+                  <li><a href="#"><span class="ion ion-ios-arrow-round-forward me-2"></span>Aroma Therapy</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Recent Posts</h2>
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img img rounded" style="background-image: url({% static 'website/images/image_1.jpg' %})"></a>
+                <div class="text">
+                  <div class="meta">
+                    <div><a href="#"><span class="fa fa-calendar"></span> Mar. 31, 2021</a></div>
+                    <div><a href="#"><span class="fa fa-user"></span> Admin</a></div>
+                  </div>
+                  <h3 class="heading"><a href="#">Tips For Perfect Makeup</a></h3>
+                </div>
+              </div>
+              <div class="block-21 mb-4 d-flex">
+                <a class="blog-img img rounded" style="background-image: url({% static 'website/images/image_2.jpg' %})"></a>
+                <div class="text">
+                  <div class="meta">
+                    <div><a href="#"><span class="fa fa-calendar"></span> Mar. 31, 2021</a></div>
+                    <div><a href="#"><span class="fa fa-user"></span> Admin</a></div>
+                  </div>
+                  <h3 class="heading"><a href="#">Tips For Perfect Makeup</a></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Have a Questions?</h2>
+              <div class="block-23 mb-3">
+                <ul>
+                  <li><span class="icon fa fa-map marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+                  <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+                  <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid px-0 py-5 bg-darken">
+        <div class="container-xl">
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <p class="mb-0" style="font-size: 14px;">Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" rel="nofollow noopener">Colorlib</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+
+      </script>
+    {% endblock %}
+
+    
+    
+    
+    
+    

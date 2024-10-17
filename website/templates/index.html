@@ -1,0 +1,2236 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+  .center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+
+.custom-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid white; 
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.custom-button:hover {
+  background: rgba(255, 255, 255, 0.1); 
+}
+.hero-section {
+  display:flex;
+  flex-direction:column;
+  height:100vh;
+  background-image:url("https://plus.unsplash.com/premium_photo-1683133782994-1503aa32fd9b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  justify-content:center;
+  align-items:center;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position:relative;
+}
+.hero-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+   height: 115px;
+  background: #f8f3f1; 
+  clip-path: ellipse(
+    50% 50% at 50% 100%); 
+}
+
+.hero-head {
+  font-family: 'Playfair Display', serif;
+  font-size: 8rem; 
+  color: white;
+}
+
+.hero-btn1, .hero-btn2 {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-btn1::after, .hero-btn2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 100%;
+  height: 100%;
+  background: beige;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.hero-btn1:hover::after, .hero-btn2:hover::after {
+  right: 0;
+}
+
+.hero-btn1:hover, .hero-btn2:hover {
+  color: #000; /* Change to a different color if you'd like */
+}
+
+.hero-btn1 {
+  padding: 15px 30px;
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+  border-radius: 1px;
+  background: transparent;
+  font-size: 18px;
+  transition: color 0.3s;
+  margin-right: 2rem;
+}
+
+.hero-btn2 {
+  padding: 15px 30px;
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+  border-radius: 1px;
+  background: transparent;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.hero-btn {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.opening-hours {
+  background-color: white;
+  width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 5px; /* This rounds the corners slightly */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* This adds a subtle box shadow */
+}
+
+/* Media query for tablet-sized and smaller screens */
+@media (max-width: 768px) {
+  .opening-hours {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+.intro-img img {  
+  width: 100px;
+  height: 99px;
+}
+.intro-wrap{
+  align-items: center;
+display: flex;
+flex-direction: column;
+}
+.logotr{
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+.logoimg {
+  width:100px;
+  height:100px;
+}
+.slider {
+	background: white;
+	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+	height: 100px;
+	margin: auto;
+	overflow:hidden;
+	position: relative;
+	width: 960px;
+}
+
+.slider::before,
+.slider::after {
+	background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+	content: "";
+	height: 100px;
+	position: absolute;
+	width: 200px;
+	z-index: 2;
+}
+
+.slider::after {
+	right: 0;
+	top: 0;
+	transform: rotateZ(180deg);
+}
+
+.slider::before {
+	left: 0;
+	top: 0;
+}
+
+.slider .slide-track {
+	animation: scroll 40s linear infinite;
+	display: flex;
+	width: calc(250px * 14);
+}
+
+.slider .slide {
+	height: 100px;
+	width: 250px;
+}
+
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-250px * 7))}
+}
+* -------------------------------------------------------
+                   09 - Slider
+-------------------------------------------------------- */
+.main-slider {
+  /**
+    Animation
+   */
+}
+.main-slider {
+  height: 100vh;
+}
+.main-slider, .main-slider .content-slider {
+  position: relative;
+  width: 100%;
+}
+.main-slider .bg-container, .main-slider .content-slider .bg-container {
+  opacity: 0;
+}
+.box-shadow-head .main-slider .content-slider:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  box-shadow: 1px 0 31px 45px var(--assistant-color);
+  z-index: 1;
+}
+.main-slider .bg-three-js .swiper-container {
+  opacity: 0;
+}
+.main-slider .bg-three-js.bg-container:after, .main-slider .bg-three-js:before {
+  z-index: 11;
+  pointer-events: none;
+}
+.main-slider .bg-three-js canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+
+.et-hero-tabs, .et-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+  background: #eee;
+  text-align: center;
+  padding: 0 2em;
+  background: url(https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
+    background-position-x: 0%;
+    background-position-y: 0%;
+    background-repeat: repeat;
+    background-attachment: scroll;
+    background-size: auto;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+}
+.et-hero-tabs h1, .et-slide h1 {
+  font-size: 2rem;
+  margin: 0;
+  letter-spacing: 1rem;
+}
+.et-hero-tabs h3, .et-slide h3 {
+  font-size: 17px;
+  letter-spacing: 0.3rem;
+  opacity: 0.6;
+}
+
+.et-hero-tabs-container {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  z-index: 10;
+}
+.et-hero-tabs-container--top {
+  position: fixed;
+  top: 0;
+}
+
+.et-hero-tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  color: #000;
+  letter-spacing: 0.1rem;
+  transition: all 0.5s ease;
+  font-size: 0.8rem;
+}
+.et-hero-tab:hover {
+  color: white;
+  background: rgba(102,177,241,0.8);
+  transition: all 0.5s ease;
+}
+
+.et-hero-tab-slider {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 6px;
+  background: #66B1F1;
+  transition: left 0.3s ease;
+}
+
+@media (min-width: 800px) {
+  .et-hero-tabs h1, .et-slide h1 {
+    font-size: 3rem;
+  }
+  .et-hero-tabs h3, .et-slide h3 {
+    font-size: 1rem;
+  }
+  .et-hero-tab {
+    font-size: 1rem;
+  }
+}
+:root {
+  --color-default: #212529;
+  --color-default-rgb: 33, 37, 41;
+  --color-background: #ffffff;
+  --color-background-rgb: 255, 255, 255;
+  --color-primary: #e84545;
+  --color-primary-rgb: 232, 69, 69;
+  --color-secondary: #32353a;
+  --color-secondary-rgb: 50, 53, 58;
+  --color-box-background: #ffffff;
+  --color-box-background-rgb: 255, 255, 255;
+  --color-inverse: #ffffff;
+  --color-inverse-rgb: 255, 255, 255;
+}
+.section-title {
+  text-align: center;
+  padding-bottom: 60px;
+}
+
+.section-title h2 {
+  color: var(--color-secondary);
+  font-size: 32px;
+  font-weight: 700;
+  position: relative;
+}
+
+
+.section-title p {
+  margin-bottom: 0;
+}
+.review-title {
+  text-align: center;
+  
+}
+
+.review-title h2 {
+  color: var(--color-secondary);
+  font-size: 32px;
+  font-weight: 700;
+  position: relative;
+  margin-top:2rem;
+  margin-bottom: 0 !important;
+}
+
+
+
+.review-title h2:before {
+  margin: 0 15px 10px 0;
+}
+
+.review-title h2:after {
+  margin: 0 0 10px 15px;
+}
+
+.review-title p {
+  margin-bottom: 0;
+}
+.faq{
+  margin-top:7rem;
+  margin-bottom:7.5rem;
+}
+
+      .faq .content h3 {
+         color: var(--color-secondary);
+         font-weight: 400;
+         font-size: 34px;
+       }
+       
+       .faq .content p {
+         font-size: 15px;
+         color: rgba(var(--color-default-rgb), 0.7);
+       }
+       
+       .faq .faq-container .faq-item {
+         position: relative;
+         padding: 20px;
+         margin-bottom: 20px;
+         box-shadow: 0px 5px 25px 0px rgba(var(--color-default-rgb), 0.1);
+         overflow: hidden;
+       }
+       
+       .faq .faq-container .faq-item:last-child {
+         margin-bottom: 0;
+       }
+       
+       .faq .faq-container .faq-item h3 {
+         color: var(--color-secondary);
+         font-weight: 600;
+         font-size: 18px;
+         line-height: 24px;
+         margin: 0 30px 0 0;
+         transition: 0.3s;
+         cursor: pointer;
+         display: flex;
+         align-items: flex-start;
+       }
+       
+       .faq .faq-container .faq-item h3 .num {
+         color: #f2612b;
+         padding-right: 5px;
+       }
+       
+       .faq .faq-container .faq-item h3:hover {
+         color: #f2612b;
+       }
+       
+       .faq .faq-container .faq-item .faq-content {
+         display: grid;
+         grid-template-rows: 0fr;
+         transition: 0.3s ease-in-out;
+         visibility: hidden;
+         opacity: 0;
+       }
+       
+       .faq .faq-container .faq-item .faq-content p {
+         margin-bottom: 0;
+         overflow: hidden;
+       }
+       
+       .faq .faq-container .faq-item .faq-toggle {
+         position: absolute;
+         top: 20px;
+         right: 20px;
+         font-size: 16px;
+         line-height: 0;
+         transition: 0.3s;
+         cursor: pointer;
+       }
+       
+       .faq .faq-container .faq-item .faq-toggle:hover {
+         color:#f2612b;
+       }
+       
+       .faq .faq-container .faq-active h3 {
+         color: #ee6d3d;;
+       }
+       
+       .faq .faq-container .faq-active .faq-content {
+         grid-template-rows: 1fr;
+         visibility: visible;
+         opacity: 1;
+         padding-top: 10px;
+       }
+       
+       .faq .faq-container .faq-active .faq-toggle {
+         transform: rotate(90deg);
+         color: #f2612b;
+       }
+       /* Features Section - Home Page
+------------------------------*/
+.features {
+ 
+  margin-bottom: 6rem;
+}
+.features .features-item {
+  color: rgba(var(--color-default-rgb), 0.8);
+}
+
+.features .features-item+.features-item {
+  margin-top: 100px;
+}
+
+@media (max-width: 768px) {
+  .features .features-item+.features-item {
+    margin-top: 40px;
+  }
+}
+
+.features .features-item h3 {
+  color: var(--color-secondary);
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.features .features-item .btn-get-started {
+  background-color:#f2612b;
+  color: var(--color-inverse);
+  padding: 8px 30px 10px 30px;
+  border-radius: 4px;
+}
+
+.features .features-item .btn-get-started:hover {
+  background-color: #f2612b;
+}
+
+.features .features-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.features .features-item ul li {
+  padding-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.features .features-item ul li:last-child {
+  padding-bottom: 0;
+}
+
+.features .features-item ul i {
+  font-size: 20px;
+  padding-right: 4px;
+  color: #f2612b;
+}
+
+.features .features-item img {
+  border: 6px solid var(--color-box-background);
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+}
+
+.features .features-item .features-img-bg {
+  position: relative;
+  min-height: 500px;
+}
+
+@media (max-width: 640px) {
+  .features .features-item .features-img-bg {
+    min-height: 300px;
+  }
+}
+
+.features .features-item .features-img-bg img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+.features .features-item .image-stack {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.features .features-item .image-stack .stack-back {
+  grid-column: 4/-1;
+  grid-row: 1;
+  width: 82%;
+  z-index: 1;
+}
+
+.features .features-item .image-stack .stack-front {
+  grid-row: 1;
+  grid-column: 1/span 8;
+  margin-top: 20%;
+  width: 100%;
+  z-index: 2;  
+}
+.breadcrumb-section{
+    position: relative;
+    margin-top: 81px;
+    background-image: url(https://images.unsplash.com/photo-1515511856280-7b23f68d2996?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fHdhbGwlMjB3aGl0ZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom:5rem;
+}
+@media (max-width: 991px) {
+    .breadcrumb-section {
+        margin-top: 0;
+    }
+  }
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+     
+    z-index: 1; 
+}
+
+.container {
+    position: relative;
+    z-index: 2; /* This ensures the text appears above the overlay */
+}
+.square {
+    position: relative;
+    width: 50%;
+    overflow: hidden;
+}
+
+.square img {
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 768px) {
+    .square {
+        width: 100%;
+    }
+}
+#about-section {
+  background: rgb(248, 243, 241);
+    position: relative;
+}
+
+.blockabout {
+    padding: 20px;
+    background: white;
+}
+
+.blockabout-inner {
+    padding: 30px;
+    border: 1px solid rgba(32, 33, 36, 0.1);
+}
+
+.sosmed-horizontal a i {
+    border: 1px solid #070707;
+    border-radius: 50%;
+    color: #070707;
+    display: inline-block;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    margin: auto 3px;
+    font-size: 15px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.rey-btn {
+    border: 2px solid #070707;
+    padding: 10px 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    font-weight: 700;
+    border-radius: 0; 
+    transition: all 0.3s;
+}
+.business-section {
+	align-items: center;
+	background: #E3E3E3;
+	display: flex;
+	justify-content: center;
+}
+
+.slider {
+	background: white;
+	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+	height: 100px;
+	margin: auto;
+	overflow:hidden;
+	position: relative;
+	width: 960px;
+  margin-bottom: 5rem;
+  margin-top: 1rem;
+}
+
+.slider::before,
+.slider::after {
+	background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+	content: "";
+	height: 100px;
+	position: absolute;
+	width: 200px;
+	z-index: 2;
+}
+
+.slider::after {
+	right: 0;
+	top: 0;
+	transform: rotateZ(180deg);
+}
+
+.slider::before {
+	left: 0;
+	top: 0;
+}
+
+.slider .slide-track {
+	animation: scroll 40s linear infinite;
+	display: flex;
+	width: calc(250px * 14);
+}
+
+.slider .slide {
+	height: 100px;
+	width: 250px;
+}
+
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-250px * 7))}
+}
+.carousel-section {
+  position: relative;
+  width: 100%;
+  min-height: 47vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 6rem;
+  overflow: hidden;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  width: 300px;
+  height: 400px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: self-start;
+}
+
+.swiper-slide-active {
+  filter: blur(0px);
+}
+
+.swiper-pagination-bullet,
+.swiper-pagination-bullet-active {
+  background: #fff;
+}
+
+.swiper-slide span {
+  text-transform: uppercase;
+  color: #fff;
+  background: #1b7402;
+  padding: 7px 18px 7px 25px;
+  display: inline-block;
+  border-radius: 0 20px 20px 0px;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+  font-family: "Open Sans", sans-serif;
+}
+
+.swiper-slide--one span {
+  background: #62667f;
+}
+
+.swiper-slide--two span {
+  background: #087ac4;
+}
+
+.swiper-slide--three span {
+  background: #b45205;
+}
+
+.swiper-slide--four span {
+  background: #087ac4;
+}
+
+.swiper-slide h2 {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  padding: 25px 45px 0 25px;
+}
+
+.swiper-slide p {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  padding: 0 25px 35px 25px;
+}
+
+.swiper-slide svg {
+  color: #fff;
+  width: 22px;
+  height: 22px;
+  margin-right: 7px;
+}
+
+.swiper-slide--one {
+  background: url({% static 'website/images/review.png' %})
+      no-repeat 50% 50% / cover;
+}
+
+.swiper-slide--two {
+  background: url({% static 'website/images/google2.png' %})
+      no-repeat 50% 50% / cover;
+}
+
+.swiper-slide--three {
+  background:url({% static 'website/images/google3.png' %})
+      no-repeat 50% 50% / cover;
+}
+
+.swiper-slide--four {
+  background: url({% static 'website/images/google4.png' %})
+      no-repeat 50% 50% / cover;
+}
+
+.swiper-slide--five {
+  background: url({% static 'website/images/google5.png' %})
+      no-repeat 50% 50% / cover;
+}
+.swiper-slide--six {
+  background: url({% static 'website/images/google6.png' %})
+      no-repeat 50% 50% / cover;
+}
+
+.swiper-3d .swiper-slide-shadow-left,
+.swiper-3d .swiper-slide-shadow-right {
+  background-image: none;
+}
+.feature-box-1 {
+  padding: 32px;
+  box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+  margin: 15px 0;
+  position: relative;
+  z-index: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  -moz-transition: ease all 0.35s;
+  -o-transition: ease all 0.35s;
+  -webkit-transition: ease all 0.35s;
+  transition: ease all 0.35s;
+  top: 0;
+}
+.feature-box-1 * {
+  -moz-transition: ease all 0.35s;
+  -o-transition: ease all 0.35s;
+  -webkit-transition: ease all 0.35s;
+  transition: ease all 0.35s;
+}
+.feature-box-1 .icon {
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  background: #f7876e;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 50%;
+  margin-bottom: 22px;
+  font-size: 27px;
+}
+.feature-box-1 .icon i {
+  line-height: 70px;
+}
+.feature-box-1 h5 {
+  color: #20247b;
+  font-weight: 600;
+}
+.feature-box-1 p {
+  margin: 0;
+}
+.feature-box-1:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: auto;
+  right: 0;
+  border-radius: 10px;
+  width: 0;
+  
+  z-index: -1;
+  -moz-transition: ease all 0.35s;
+  -o-transition: ease all 0.35s;
+  -webkit-transition: ease all 0.35s;
+  transition: ease all 0.35s;
+}
+.feature-box-1:hover {
+  top: -5px;
+}
+.feature-box-1:hover h5 {
+  color: black;
+}
+.feature-box-1:hover p {
+  color: black(255, 255, 255, 0.8);
+}
+.feature-box-1:hover:after {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  left: 0;
+  right: auto;
+}
+.section {
+    padding: 100px 0;
+    position: relative;
+}
+.section-title {
+    padding-bottom: 45px;
+}
+.section-title h2 {
+    font-weight: 700;
+    color:black;
+    font-size: 40px;
+    margin: 0 0 15px;
+}
+.icon img {
+    width: 42px;  /* adjust as needed */
+    height: 42px;  /* adjust as needed */
+}
+.navbar-dark .navbar-toggler {
+  border-color: #f000;
+}
+
+.menu-options {
+  display: flex;
+  justify-content: center;
+}
+.contact-heading {
+  font-weight: 700;
+  color: black;
+  font-size: 45px;
+  padding-bottom: 3rem;
+}
+/* Parallax Effect Styles */
+.parallax-section{
+  background-image: url(https://images.unsplash.com/photo-1615520740826-156a58fffa3f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.every-title {
+  font-weight: 700;
+  color: black;
+  font-size: 45px;
+  margin: 0 0 15px;
+}
+.s-price {
+  display: flex;
+  flex-direction:row;
+  align-items:center;
+}
+.center-cta{
+  display: flex;
+  justify-content: center;
+}
+
+.section-heading h2 span {
+  color: #D9A05B; /* Replace $primary with actual color */
+}
+.famie-btn {
+  background-color: #ffbc1f;
+  -webkit-transition-duration: 500ms;
+  -o-transition-duration: 500ms;
+  transition-duration: 500ms;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  min-width: 160px;
+  height: 50px;
+ 
+  border-radius: 0;
+  padding: 0 30px;
+  font-size: 16px;
+  line-height: 48px;
+  font-weight: 700;
+  color: #2d2a2a;
+}
+.about-us-area {
+  margin-top:8rem;
+}
+.bg-opacity-80{
+  --bs-bg-opacity: 0.8;
+}
+
+.custom-figure {
+  position: sticky;
+  top: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  
+  padding: 0 10px; /* Add 10px padding to both sides */
+  box-sizing: border-box; /* Ensure padding is considered in the element's width */
+}
+
+.custom-img {
+  width: 100%; /* Ensure the image takes up the full width of its container */
+  height: auto; /* Maintain the aspect ratio */
+  max-width: none; /* Remove the limit on max width */
+  max-height: none; /* Remove the limit on max height */
+  border-radius: 3px;
+  transition: transform 0.3s ease-in-out;
+  object-fit: contain; /* Ensure the image fits within its container */
+}
+
+@media screen and (max-width: 768px) {
+  .custom-img {
+    width: 100%; /* Adjust the width for smaller screens if needed */
+  }
+}
+
+
+
+/* Apply slight rotation to each image in the gallery */
+.custom-figure:nth-child(1) .custom-img {
+  transform: scale(0.6) rotate(-12.5deg);
+}
+
+.custom-figure:nth-child(2) .custom-img {
+  transform: scale(0.6) rotate(-10deg);
+}
+
+.custom-figure:nth-child(3) .custom-img {
+  transform: scale(0.6) rotate(-7.5deg);
+}
+
+.custom-figure:nth-child(4) .custom-img {
+  transform: scale(0.6) rotate(-5deg);
+}
+
+.custom-figure:nth-child(5) .custom-img {
+  transform: scale(0.6) rotate(-2.5deg);
+}
+
+.custom-figure:nth-child(6) .custom-img {
+  transform: scale(0.6) rotate(0deg);
+}
+
+.custom-figure:nth-child(7) .custom-img {
+  transform: scale(0.6) rotate(2.5deg);
+}
+
+.custom-figure:nth-child(8) .custom-img {
+  transform: scale(0.6) rotate(5deg);
+}
+
+.custom-figure:nth-child(9) .custom-img {
+  transform: scale(0.6) rotate(7.5deg);
+}
+
+.custom-figure:nth-child(10) .custom-img {
+  transform: scale(0.6) rotate(10deg);
+}
+
+
+/* Allow horizontal overflow specifically for the gallery section */
+.custom-gallery-section {
+  
+  overflow-x: visible !important; /* Attempt to allow overflow here */
+  width: 100vw; /* Take full viewport width */
+  padding: 0 10px; /* Maintain padding to prevent edge touching */
+}
+
+.whole-site{
+  overflow-x: hidden;
+        width: 100%;
+}
+/* Adjustments for larger screens to make the images smaller */
+@media screen and (min-width: 768px) {
+  .custom-img {
+    max-width: 70%; /* Adjust width for desktop */
+    max-height: 80vh; /* Adjust height for desktop */
+  }
+}
+
+@media screen and (min-width: 1942px) {
+  .custom-img {
+    max-width: 27%; /* Images will be 20% of the viewport width on screens larger than 1942px */
+    max-height: 80vh; /* Ensure images do not exceed 80% of the viewport height */
+  }
+}
+
+
+
+.brand-slider-outer {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+}
+
+.brand-slider-row {
+  --duration: 14s; /* Set your desired duration */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  white-space: nowrap;
+  width: max-content; /* This ensures the content width isn't restricted by the viewport */
+  animation: marquee var(--duration) linear infinite;
+}
+
+/* Duplicate the content for smooth looping */
+.brand-slider-row::after {
+  content: "";
+  display: block;
+  width: 100%; /* Makes sure we duplicate the content */
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0); /* Starts from the left without a gap */
+  }
+  100% {
+    transform: translateX(-50%); /* Moves the content to the left (adjusted for no gap) */
+  }
+}
+
+.brand-slider-row .brand-slider-first {
+  align-items: center;
+  display: flex;
+  white-space: nowrap;
+}
+
+.brand-slider-row .brand-slider-first .brand-title {
+  align-items: center;
+  color: #555;
+  display: flex;
+  font-size: 100px;
+  line-height: 1.2;
+  padding: 0 1vw 0 0;
+  white-space: nowrap;
+}
+.highlight-muted {
+  color: #D9B596; /* Muted golden yellow for "Naturally" and "Carefully" */
+}
+
+.highlight-strong {
+  color: #fba03f; /* Strong honey/orange color for "Sweet" and "Crafted" */
+  font-weight: bold;
+}
+@media screen and (max-width: 374px) {
+  .media-decoration-img {
+    max-width: 90%;
+  }
+}
+
+@media screen and (min-width: 374px) and (max-width: 460px) {
+  .media-decoration-img {
+    max-width: 77%;
+  }
+}
+
+@media screen and (min-width: 460px) and (max-width: 767px) {
+  .media-decoration-img {
+    max-width: 62%;
+  }
+}
+.btn-footer {
+  background-color: #f2612b; /* Set the primary orange color */
+  color: #fff; /* White text for better contrast */
+  border: none; /* Remove any border if you want a solid button */
+  border-radius: 5px; /* Adjust the radius as needed */
+  padding: 10px 20px; /* Adjust padding for desired size */
+  font-size: 1rem; /* Adjust text size */
+  transition: background-color 0.3s ease; /* Add smooth hover transition */
+}
+
+.btn-footer:hover {
+  background-color: #e25427; /* Slightly darker shade for hover effect */
+  color: white;
+}
+@media screen and (max-width: 657px) {
+  .custom-figure {
+    top: 15vh; /* Set top to 15vh for smaller screens */
+  }
+}
+.hero-title{
+  font-size: 4rem;
+}
+.hero-subtitle{
+  font-size: 14px;
+}
+</style>
+
+
+
+
+
+
+
+    <!-- WELCOME -->
+    <header data-jarallax data-speed=".8" style="background-image: url({% static 'website/images/hero.jpg' %})">
+      <div class="d-flex flex-column min-vh-100 bg-black bg-opacity-50 pt-10 pt-md-8 pb-7 pb-md-0">
+        <div class="container my-auto">
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6 text-center">
+              <!-- Preheading -->
+              <h6 class="text-xs text-white text-opacity-75"><span class="text-primary">Waxing</span> / Facials</h6>
+
+              <!-- Heading -->
+              <h1 class="hero-title text-white mb-4">Sola Sugaring</h1>
+
+              <!-- Subheading -->
+              <p class="hero-subtitle text-center text-white text-opacity-75 mb-7">
+                Gentle, natural hair removal for smooth, glowing skin. Perfect for even the most sensitive skin.
+              </p>
+
+              <!-- Button -->
+              <a style="background-color: #f2612b;"class="btn btn-outline-primary text-white text-primary-hover mb-7 mb-md-0" href="#reservation"> Book Appointment </a>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md">
+              <!-- Social links -->
+              <ul class="list-inline text-center text-md-start mb-3 my-md-5">
+                <li class="list-inline-item ms-5">
+                  <a class="text-white text-opacity-75 text-primary-hover" href="#!">
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md">
+              <!-- Address -->
+              <p class="body-p font-serif text-white text-opacity-75 text-center text-md-end text-lg-end my-md-5">
+                <i class="fas fa-map-marker-alt text-primary me-3"></i> 214 W 21st St, Hazleton, PA 18201
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!--ABOUT ME SECTION-->
+       <!-- DISCOVER -->
+       <section class="pt-7 pt-md-9">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2">
+              <!-- Divider -->
+              <hr class="hr-sm text-primary" />
+  
+              <!-- Text -->
+              <p class="fs-lg lh-lg text-body-emphasis mb-5 mb-md-0">Smooth, Sweet, Sensational.</p>
+            </div>
+            <div class="col-md-4">
+              <!-- Media -->
+              <div class="media-decoration media-decoration-1 mb-5 mb-md-0">
+                <!-- Border -->
+                <div class="media-decoration-border" data-jarallax-element="-40"></div>
+  
+                <!-- Image -->
+                <img class="media-decoration-img img-fluid" src="{% static 'website/images/gallery1.jpeg' %}" alt="..." />
+              </div>
+            </div>
+            <div class="col-md-5 align-self-center mx-auto">
+              <!-- Heading -->
+              <h2 class="mb-2"><em style="color: #f2612b;">Transform</em> Your Skin, Naturally</h2>
+  
+              <!-- Text -->
+              <p class="body-p mb-0">
+                Sugaring offers a gentler, more natural alternative to traditional waxing. Using only natural ingredients, it effectively removes hair while being kinder to the skin, reducing irritation and redness. Unlike wax, sugaring doesn’t stick to live skin cells, making it a less painful experience. Embrace smoother, softer skin with a process that’s as sweet as it is effective!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+
+      <div class="brand-slider-outer is-inview" style=" margin-top: 6rem;
+  margin-bottom: 4rem;"data-scroll="">
+        <div class="brand-slider-row flex">
+          <div class="brand-slider-first flex">
+            <div class="brand-title flex">
+              <span class ="highlight-muted">Holistic&nbsp;</span><span class = "highlight-strong"> Beauty.&nbsp;</span><span class = "highlight-muted">Sugar&nbsp;</span><span class = "highlight-strong">Smooth.&nbsp;</span>
+            </div>
+          </div>
+          <div class="brand-slider-first flex">
+            <div class="brand-title flex">
+              <span class ="highlight-muted">Holistic&nbsp;</span><span class="highlight-strong"> Beauty.&nbsp;</span><span class="highlight-muted">Sugar&nbsp;</span><span class="highlight-strong">Smooth.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DISCOVER -->
+      <section class="py-7 py-md-9">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2 order-md-2 align-self-end">
+              <!-- Divider -->
+              <hr class="hr-sm text-primary" />
+  
+              <!-- Text -->
+              <p class="fs-lg lh-lg text-body-emphasis mb-5 mb-md-0">Luxury, Naturally Sweetened.</p>
+            </div>
+            <div class="col-md-4 order-md-3">
+              <!-- Media -->
+              <div class="media-decoration media-decoration-1 mb-5 mb-md-0">
+                <!-- Solid -->
+                <div class="media-decoration-solid" data-jarallax-element="-40"></div>
+  
+                <!-- Border -->
+                <div class="media-decoration-border" data-jarallax-element="-40"></div>
+  
+                <!-- Image -->
+                <img class="media-decoration-img img-fluid" src="{% static 'website/images/solaabout.jpeg' %}" alt="..." />
+              </div>
+            </div>
+            <div class="col-md-5 order-md-1 align-self-center mx-auto">
+              <!-- Heading -->
+              <h2 class="mb-2"><em style="color: #f2612b;">#1 Sugaring Studio </em> in Luzerne County</h2>
+  
+              <!-- Text -->
+              <p class="body-p mb-0">
+                As the first and only sugaring studio in Luzerne County, we take pride in offering a unique, natural hair removal experience. 
+                Our commitment to using the finest ingredients ensures a smoother, less painful process, leaving your skin feeling refreshed and revitalized. 
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+<!--ABOUT ME SECTION-->
+
+
+
+
+<!--REVIEW SECTION-->
+
+<div class="container review-title">
+  <h2 class ="every-title">Our Testimonies</h2>
+</div><!-- End Section Title -->
+<section class ="carousel-section">
+
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide swiper-slide--one">
+       
+      </div>
+      <div class="swiper-slide swiper-slide--two">
+       
+      </div>
+
+      <div class="swiper-slide swiper-slide--three">
+       
+      </div>
+
+      <div class="swiper-slide swiper-slide--four">
+      
+      </div>
+
+      <div class="swiper-slide swiper-slide--five">
+       
+      </div>
+
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<!--REVIEW SECTION-->
+
+
+
+
+<!--CTA TRAINING SECTION-->
+<div class="event-lg collapse show bg-cover" id="eventOne" style="background-image: url(https://plus.unsplash.com/premium_photo-1698920493591-2f0ae4231172?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
+  <div class="bg-black bg-opacity-80">
+    <div class="container">
+      <div class="row py-10 center-cta">
+        <div class="col-md-8 col-lg-5">
+          <!-- Date -->
+          <h3 class="text-xs text-primary">
+            <time datetime="2017-09-30">Launch Your Journey in Beauty</time>
+          </h3>
+
+          <!-- Heading -->
+          <h2 class="mb-3 text-white">Join the Leading Sugaring Training Community</h2>
+
+          <!-- Description -->
+          <p class="mb-6 text-white text-opacity-75">
+            Join our Skool.com community where you'll have access to in-depth training, live sessions, PDFs, courses, and everything you need to excel in the art of sugaring and running a successful beauty business.
+          </p>
+
+          <!-- Button -->
+          <a style="background: #f2612b;"class="btn btn-outline-primary text-white text-primary-hover" href="#joinCommunity">Join Community</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!--CTA TRAINING SECTION-->
+
+
+
+ <!-- MENU -->
+ <section class="py-7 py-md-9 body-p">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 text-center">
+        <!-- Heading -->
+        <h2 class="mb-2 every-title">Services We Offer</h2>
+
+        <!-- Subheading -->
+        <p class="body-p mb-6">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione numquam eos perferendis itaque hic unde, ad, laudantium minima.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <!-- Navigation -->
+        <div class="nav justify-content-center mb-6" id="menuTabs" role="tablist">
+          <a class="nav-link active" id="mainsTab" data-bs-toggle="tab" href="#mains" role="tab" aria-controls="mains" aria-selected="true">Body Sugaring</a>
+          <a class="nav-link" id="lunchTab" data-bs-toggle="tab" href="#lunch" role="tab" aria-controls="lunch">Facial & Body Treatments</a>
+          
+          <a class="nav-link" id="drinksTab" data-bs-toggle="tab" href="#drinks" role="tab" aria-controls="drinks"> Intimate Skincare & Add Ons</a>
+        </div>
+      </div>
+    </div>
+    <div class="row menu-options">
+      <div class="col-12">
+        <!-- Content -->
+        <div class="tab-content" id="menuContent">
+          <div class="tab-pane fade show active" id="mains" role="tabpanel" aria-labelledby="mainsTab">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                    
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">New Client/Been A While Brazilian </h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">
+                        First time at Sola? More than eight weeks since your last Brazilian? 
+                        This service gives us the extra time needed to make you feel comfortable.</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$85</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">Brazilian</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">Remove all hair from the front to 
+                        the back. May opt to leave a strip.</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$75</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+           
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                   
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">Underarms</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">Gentle hair removal for smooth underarms.</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$25</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                    
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">Full Legs</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0"> Includes full leg sugaring for a smooth, even finish.</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$120</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                    
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">Bikini Line</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">Tidy up the sides of your 
+                        bikini line with this quick service.</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$30</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                    
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">Half Legs</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">Hair removal from knee to ankle or thigh to knee.</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$45</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          <div class="tab-pane fade" id="lunch" role="tabpanel" aria-labelledby="lunchTab">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                    
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">Sola Signature Facial (60 min)</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">Achieve a “Sola” glow with a holistic facial tailored to your skincare needs and concerns. Your experience includes:
+                        •Skin analysis
+                        •Enzyme exfoliation (with extractions)
+                        •LED therapy (if needed)
+                        •Hand, arm and shoulder massage
+                        •Mask application
+                        •Aftercare instructions</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$85</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                   
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">Express Wellness Facial - 30 minutes</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">Achieve a "Sola" glow with a holistic facial that is tailored for relaxation with a focus on facial massage. Your experience includes a double cleanse of the area and a relaxing facial massage.
+
+                        This service is great for those who’d like an introduction to the extended 60 or 90 minute facial option.
+                        
+                        Green Envee skin care products blend nature and science with aromatherapy essential oils & plant active ingredients that deliver a healthy complexion.</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$65</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                   
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">Sola Signature Facial (60 min) *New Client*</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">Achieve a “Sola” glow with a holistic facial tailored to your skincare needs and concerns. Your experience includes:
+                        •Skin analysis
+                        •Enzyme exfoliation (with extractions)
+                        •LED therapy (if needed)
+                        •Hand, arm and shoulder massage
+                        •Mask application
+                        •Aftercare instructions
+                        </p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$105</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                  
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">"Sola Glow" Back Treatment</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">
+                        This comprehensive session begins with a deep cleanse, ridding the skin of daily impurities. We then gently exfoliate to unveil a smoother skin surface. 
+                        Next, we perform meticulous extractions to clear clogged pores. The treatment advances with high-frequency therapy to enhance blood circulation and rid of bacteria, 
+                        followed by LED light therapy tailored to your skin’s needs, targeting acne, inflammation, or aging concerns. The treatment concludes with a soothing mask, 
+                        specifically chosen to calm and hydrate, leaving your back immaculately clear, toned, and radiant.</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$75</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+          
+            </div>
+          </div>
+          <div class="tab-pane fade" id="dinner" role="tabpanel" aria-labelledby="dinnerTab">
+            <div class="row menu-options">
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                 
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">Fusce sed dolor eget tortor</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, obcaecati! Sapiente laudantium.</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$16</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                   
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">Lorem ipsum dolor sit amet</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, obcaecati! Sapiente laudantium.</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$15</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                  
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">Lorem ipsum dolor sit amet</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, obcaecati! Sapiente laudantium.</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$15</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">Fusce id ante ut arcu</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, obcaecati! Sapiente laudantium.</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$23</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+              
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">Fusce id ante ut arcu</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, obcaecati! Sapiente laudantium.</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$23</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                   
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">Fusce sed dolor eget tortor</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, obcaecati! Sapiente laudantium.</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$16</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="drinks" role="tabpanel" aria-labelledby="drinkstab">
+            <div class="row menu-options">
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                 
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">Deluxe Brazilian</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">This service entails a Brazilian sugaring as well as an express ingrown treatment.
+
+                        (If you have excessive ingrowns, book the Ingrown Treatment option instead. We will remove as many ingrown hairs as time allows)</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$105</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                   
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">Luxury Brazilian</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">The goal of this treatment is to hydrate and soothe the skin immediately post-sugaring.
+
+                        -Double cleansing of the skin
+                        -Sugaring
+                        -Extractions of ingrowns/trapped hairs (if needed)
+                        -High Frequency to ward off bacteria and heal ingrowns/breakouts
+                        -Finishing serum that’ll target your individual skin needs
+                        -Hydrojelly mask
+                        
+                        -Foot scrub + massage
+                        
+                        *No steam is used*</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$115</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                  
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">Ingrown Treatment</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">The goal of this treatment is to treat ingrown hairs as well as bacterial reaction prevention immediately post-sugaring.
+
+                        Can be booked for Brazilian area, inner thigh or glutes.
+                        
+                        It includes the following:
+                        
+                        -Cleansing of the skin
+                        -Enzyme mask to remove surface dead skin
+                        -Extractions of ingrown/trapped hairs
+                        -High Frequency therapy to ward off bacteria and heal ingrowns
+                        -Finishing serum targeted to your individual skin needs
+                        -Soothing mask
+                        
+                        *No steam is used*</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$50</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="py-3 border-bottom">
+                  <div class="row menu-options">
+                
+                    <div class="col-7">
+                      <!-- Heading -->
+                      <h5 class="mb-2">Hydrojelly Mask *Add on*</h5>
+
+                      <!-- Text -->
+                      <p class="mb-0">Great add-on to calm the skin immediately post-sugaring. This will be paired with a soothing oil to further replenish skin.</p>
+                    </div>
+                    <div class="col-2 s-price">
+                      <!-- Price -->
+                      <div class="fs-4 font-serif text-center text-body-emphasis">$15</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+
+            </div>
+          </div>
+          
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="whole-site">
+<!-- Brand Section -->
+
+<div class="slider">
+	<div class="slide-track">
+		<div class="slide">
+			<img src="{% static 'website/images/greenlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="{% static 'website/images/furlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="{% static 'website/images/sweetlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="{% static 'website/images/bryghtlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="{% static 'website/images/greenlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+    <div class="slide">
+			<img src="{% static 'website/images/furlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="{% static 'website/images/sweetlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="{% static 'website/images/bryghtlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="{% static 'website/images/greenlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+		<div class="slide">
+			<img src="{% static 'website/images/furlogo.jpg' %}" height="100" width="250" alt="" />
+		</div>
+	</div>
+</div>
+</section>
+<!-- Brand Section -->
+<!-- CAROUSEL -->
+<div class="custom-gallery-section">
+  <div class="col-12 col-md-8 col-lg-6 text-center" style ="width: 100%;">
+    <!-- Heading -->
+    <h2 class="mb-2 every-title">Take A Peak Into Sola</h2>
+  </div>
+  <div class="custom-gallery-wrapper">
+    <!-- Gallery Figures Wrapper -->
+    <div class="custom-gallery">
+      <figure class="custom-figure">
+        <img src="{% static 'website/images/gallery1.jpeg' %}" class="custom-img" alt="Photo 1">
+      </figure>
+      <figure class="custom-figure">
+        <img src="{% static 'website/images/gallery2.jpeg' %}" class="custom-img" alt="Photo 2">
+      </figure>
+    
+      <figure class="custom-figure">
+        <img src="{% static 'website/images/gallery4.jpeg' %}" class="custom-img" alt="Photo 4">
+      </figure>
+      <figure class="custom-figure">
+        <img src="{% static 'website/images/gallery7.jpg' %}" class ="custom-img" alt="photo 7">
+      </figure>
+      <figure class="custom-figure">
+        <img src="{% static 'website/images/solgal.jpg' %}" class ="custom-img" alt="photo 7">
+      </figure>
+      <figure class="custom-figure">
+        <img src="{% static 'website/images/solgal2.jpg' %}" class ="custom-img" alt="photo 7">
+      </figure>
+      <figure class="custom-figure">
+        <img src="{% static 'website/images/solgal3.jpg' %}" class ="custom-img" alt="photo 7">
+      </figure>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Features Section  --> 
+ <section id="features" class="features">
+
+  <!--  Section Title -->
+  <div class="container section-title">
+    <h2>We are Constantly Growing</h2>
+    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+  </div><!-- End Section Title -->
+  <div class="container">
+    <div class="row gy-4 align-items-center features-item">
+      <div class="col-lg-5 order-2 order-lg-1" >
+        <h3>Corporis temporibus maiores provident</h3>
+        <p>
+          Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+        </p>
+        <a href="#" class="btn btn-get-started">Get Started</a>
+      </div>
+      <div class="col-lg-7 order-1 order-lg-2 d-flex align-items-center">
+        <div class="image-stack">
+          <img src="{% static 'website/images/solaabout.jpeg' %}" alt="" class="stack-front">
+          <img src="{% static 'website/images/shadow.jpg' %}" alt="" class="stack-back">
+        </div>
+      </div>
+    </div><!-- Features Item -->
+    <div class="row gy-4 align-items-stretch justify-content-between features-item ">
+      <div class="col-lg-6 d-flex align-items-center features-img-bg">
+        <img src="{% static 'website/images/gallery3.jpeg' %}" class="img-fluid" alt="">
+      </div>
+      <div class="col-lg-5 d-flex justify-content-center flex-column" >
+        <h3>Sunt consequatur ad ut est nulla</h3>
+        <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.</p>
+        <ul>
+          <li><i class="bi bi-check"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
+          <li><i class="bi bi-check"></i><span> Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
+          <li><i class="bi bi-check"></i> <span>Facilis ut et voluptatem aperiam. Autem soluta ad fugiat</span>.</li>
+        </ul>
+        <a href="#" class="btn btn-get-started align-self-start">Get Started</a>
+      </div>
+    </div><!-- Features Item -->
+  </div>
+</section>
+<!-- End Features Section -->
+
+<!--CTA TRAINING SECTION-->
+<div class="event-lg collapse show bg-cover" id="eventOne" style="background-image: url(https://plus.unsplash.com/premium_photo-1698920493591-2f0ae4231172?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
+  <div class="bg-black bg-opacity-80">
+    <div class="container">
+      <div class="row py-10 center-cta">
+        <div class="col-md-8 col-lg-5">
+          <!-- Date -->
+          <h3 class="text-xs text-primary">
+            <time datetime="2017-09-30">Launch Your Journey in Beauty</time>
+          </h3>
+
+          <!-- Heading -->
+          <h2 class="mb-3 text-white">Join the Leading Sugaring Training Community</h2>
+
+          <!-- Description -->
+          <p class="mb-6 text-white text-opacity-75">
+            Join our Skool.com community where you'll have access to in-depth training, live sessions, PDFs, courses, and everything you need to excel in the art of sugaring and running a successful beauty business.
+          </p>
+
+          <!-- Button -->
+          <a style="background: #f2612b;"class="btn btn-outline-primary text-white text-primary-hover" href="#joinCommunity">Join Community</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!--CTA TRAINING SECTION-->
+
+
+
+<!-- Faq Section - Home Page -->
+<section id="faq" class="faq">
+
+  <div class="container">
+
+    <div class="row gy-4">
+
+      <div class="col-lg-4">
+        <div class="content px-xl-5">
+          <h3><span>Frequently Asked </span><strong style="color: #f2612b;">Questions</strong></h3>
+          <p>
+            Learn more about our sugaring services and what makes them the best choice for smooth, radiant skin. We’re here to answer your questions!
+          </p>
+        </div>
+      </div>
+
+      <div class="col-lg-8" >
+
+        <div class="faq-container">
+          <div class="faq-item faq-active">
+            <h3><span class="num">1.</span> <span>What is sugaring, and how is it different from waxing?</span></h3>
+            <div class="faq-content">
+              <p>Sugaring is a natural hair removal technique that uses a sugar paste made of sugar, water, and lemon juice. Unlike waxing, it adheres only to dead skin cells and hair, 
+                making it less irritating and more gentle on the skin.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3><span class="num">2.</span> <span>Does sugaring hurt?</span></h3>
+            <div class="faq-content">
+              <p>While you may feel a slight tugging as the hair is removed, sugaring is generally less painful than traditional waxing. Many clients find the discomfort reduces significantly after their first session.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3><span class="num">3.</span> <span>How long does my hair need to be for sugaring?</span></h3>
+            <div class="faq-content">
+              <p>Hair should be at least 1/8 inch long, or about the length of a grain of rice, for the best results. This ensures the sugar paste can effectively grasp and remove the hair.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3><span class="num">4.</span> <span>How often should I get sugaring done?</span></h3>
+            <div class="faq-content">
+              <p>We recommend scheduling sugaring sessions every 3-4 weeks. With regular appointments, hair will grow back finer and more sparsely, making future sessions even more comfortable.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+          <div class="faq-item">
+            <h3><span class="num">5.</span> <span>Is sugaring safe for sensitive skin?</span></h3>
+            <div class="faq-content">
+              <p>Yes! Sugaring is an excellent option for those with sensitive skin or prone to irritation. The natural ingredients in the sugar paste make it gentle and suitable for all skin types.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</section><!-- End Faq Section -->
+{% if message_name %}
+<center id="thank-you-section">
+  <h2>
+    Thanks {{ message_name }}!
+  </h2>
+  <p>We received your email and will respond shortly..</p>
+</center>
+<br><br><br>
+{% else %}
+<!-- CONTACT -->
+<section class="py-7 contact-margin">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 text-center">
+        <!-- Heading -->
+        <h2 class="mb-2 contact-heading">Get in touch with us</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 order-md-2">
+        <!-- Heading -->
+        <h4 class="mb-2 text-xs">Write us</h4>
+
+        <!-- Text -->
+        <p class="mb-4 font-serif">
+          <a href="mailto:admin@domain.com">info@solasugaring.com</a>
+        </p>
+
+        
+
+        <!-- Heading -->
+        <h4 class="mb-2 text-xs">Visit us</h4>
+
+        <!-- Text -->
+        <p class="mb-4 font-serif">214 W 21st St, Hazleton, PA 18201</p>
+
+        <!-- Heading -->
+        <h4 class="mb-2 text-xs">Social links</h4>
+
+        <!-- List -->
+        <div class="d-flex mb-6 mb-md-0 font-serif">
+      
+          <a class="d-block" href="#">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-9 order-md-1">
+        <!-- Form -->
+         
+        <form action="{% url 'index' %}#thank-you-section" method="POST" class="block-decoration block-decoration-2">
+          {% csrf_token %}
+          <!-- Contact number (hidden) -->
+          <input type="hidden" name="contact_number" />
+
+          <!-- Name -->
+          <div class="mb-3">
+            <label class="visually-hidden" for="user_name">Full name</label>
+            <input class="form-control" id="user_name" name="message-name" type="text" placeholder="Full name" required />
+          </div>
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label class="visually-hidden" for="user_email">E-mail address</label>
+            <input class="form-control" id="user_email"name="message-email" type="email" placeholder="E-mail address" required />
+          </div>
+
+          <!-- Message -->
+          <div class="mb-3">
+            <label class="visually-hidden" for="message">Message</label>
+            <textarea class="form-control" id="message" name="message" rows="9" placeholder="Message" required></textarea>
+          </div>
+
+          <!-- Button -->
+          <button class="btn btn-outline-primary" type="submit">Send message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- MAP -->
+{% endif %}
+
+<section class="">
+  <!-- Footer -->
+  <footer class="text-center text-white" style="background-color: rgb(253, 253, 253);">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: CTA -->
+      <section class="">
+        <p class="d-flex justify-content-center align-items-center">
+          <span style ="color: #393939;"class="me-3">Book an Appointment with us!</span>
+          <button data-mdb-ripple-init type="button" class="btn-footer">
+            Book Now
+          </button>
+        </p>
+      </section>
+      <!-- Section: CTA -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div style="color: #393939;
+  background: #f8f3f1;" class="text-center p-3" style="background-color: #f8f3f1">
+      Copyright ©2024 All rights reserved | 
+      <a style="color: #393939;" href="https://mdbootstrap.com/">solasugaring.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</section>
+      
+ 
+  
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  // Check if the thank-you section is present
+  const thankYouSection = document.getElementById("thank-you-section");
+
+  if (thankYouSection) {
+    // Scroll to the "Thank you" section smoothly
+    thankYouSection.scrollIntoView({ behavior: "smooth" });
+  }
+});
+    </script>
+{% endblock %}
