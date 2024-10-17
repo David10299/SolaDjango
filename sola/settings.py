@@ -106,8 +106,9 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # Check that this matches your file structure
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # Points to your existing 'static' folder
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Collected static files will go here after running collectstatic
+
 
 
 
