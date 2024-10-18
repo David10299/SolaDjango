@@ -9500,7 +9500,7 @@ textarea.form-control {
     height: 100%;
     content: '';
     border-radius: 50%;
-    background: url(../images/blob.svg) center no-repeat; }
+     }
   @media (max-width: 575.98px) {
     .ftco-section {
       padding: 6em 0; } }
