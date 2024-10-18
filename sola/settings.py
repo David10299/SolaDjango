@@ -48,7 +48,7 @@ ROOT_URLCONF = 'sola.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [],  # You can add template directories here if needed
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -105,7 +105,8 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = 'static/'
+# **Updated STATIC_URL with leading slash**
+STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -114,9 +115,18 @@ STATICFILES_DIRS = [
 ]  
 
 
-
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# **STORAGES Configuration for Django 4.2+**
+STORAGES = {
+    'default': {
+        'BACKEND': 'django.core.files.storage.FileSystemStorage',
+        'OPTIONS': {
+            'location': os.path.join(BASE_DIR, 'media'),  # Media files (uploads)
+        },
+    },
+    'staticfiles': {
+        'BACKEND': 'whitenoise.storage.CompressedManifestStaticFilesStorage',
+    },
+}
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -126,5 +136,3 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'lxdavidxl9166@gmail.com'  # Your Gmail address
 EMAIL_HOST_PASSWORD = 'sjzl izto nsdu jlni'  # Your Gmail password
-
-
