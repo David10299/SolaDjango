@@ -17,7 +17,8 @@ SECRET_KEY = 'django-insecure-$*jhyuk=hr^3cw-v(k1#o$_l88cqtyu596u@1nt47p1nmvw7ik
 DEBUG = True
 
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,soladjango-yb76.onrender.com').split(',')
+ALLOWED_HOSTS = ['soladjango-g8fv.onrender.com', 'www.soladjango-g8fv.onrender.com']
+
 
 
 
