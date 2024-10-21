@@ -810,33 +810,48 @@ flex-direction: column;
 }
 
 .swiper-slide--one {
-  background: url({% static 'website/images/review.png' %})
+  background: url({% static 'website/images/review1.png' %})
       no-repeat 50% 50% / cover;
 }
 
 .swiper-slide--two {
-  background: url({% static 'website/images/google2.png' %})
+  background: url({% static 'website/images/review2.png' %})
       no-repeat 50% 50% / cover;
 }
 
 .swiper-slide--three {
-  background:url({% static 'website/images/google3.png' %})
+  background:url({% static 'website/images/review3.png' %})
       no-repeat 50% 50% / cover;
 }
 
 .swiper-slide--four {
-  background: url({% static 'website/images/google4.png' %})
+  background: url({% static 'website/images/review4.png' %})
       no-repeat 50% 50% / cover;
 }
 
 .swiper-slide--five {
-  background: url({% static 'website/images/google5.png' %})
+  background: url({% static 'website/images/review5.png' %})
       no-repeat 50% 50% / cover;
 }
 .swiper-slide--six {
-  background: url({% static 'website/images/google6.png' %})
+  background: url({% static 'website/images/review6.png' %})
       no-repeat 50% 50% / cover;
 }
+.swiper-slide--seven {
+  background: url({% static 'website/images/review7.png' %})
+      no-repeat 50% 50% / cover;
+}
+
+.swiper-slide--eight {
+  background: url({% static 'website/images/review8.png' %})
+      no-repeat 50% 50% / cover;
+}
+.swiper-slide--nine {
+  background: url({% static 'website/images/review9.png' %})
+      no-repeat 50% 50% / cover;
+}
+
+
 
 .swiper-3d .swiper-slide-shadow-left,
 .swiper-3d .swiper-slide-shadow-right {
@@ -1207,7 +1222,7 @@ flex-direction: column;
 
 
     <!-- WELCOME -->
-    <header data-jarallax data-speed=".8" style="background-image: url({% static 'website/images/hero.jpg' %})">
+    <header id="home"data-jarallax data-speed=".8" style="background-image: url({% static 'website/images/hero.jpg' %})">
       <div class="d-flex flex-column min-vh-100 bg-black bg-opacity-50 pt-10 pt-md-8 pb-7 pb-md-0">
         <div class="container my-auto">
           <div class="row justify-content-center">
@@ -1224,7 +1239,7 @@ flex-direction: column;
               </p>
 
               <!-- Button -->
-              <a style="background-color: #f2612b;"class="btn btn-outline-primary text-white text-primary-hover mb-7 mb-md-0" href="#reservation"> Book Appointment </a>
+              <a style="background-color: #f2612b;"class="btn btn-outline-primary text-white text-primary-hover mb-7 mb-md-0" href="https://pocketsuite.io/link/solasugaring"> Book Appointment </a>
             </div>
           </div>
         </div>
@@ -1234,7 +1249,7 @@ flex-direction: column;
               <!-- Social links -->
               <ul class="list-inline text-center text-md-start mb-3 my-md-5">
                 <li class="list-inline-item ms-5">
-                  <a class="text-white text-opacity-75 text-primary-hover" href="#!">
+                  <a class="text-white text-opacity-75 text-primary-hover" href="https://www.instagram.com/solasugaring/">
                     <i class="fab fa-instagram"></i>
                   </a>
                 </li>
@@ -1253,7 +1268,7 @@ flex-direction: column;
 
     <!--ABOUT ME SECTION-->
        <!-- DISCOVER -->
-       <section class="pt-7 pt-md-9">
+       <section id ="about" class="pt-7 pt-md-9">
         <div class="container">
           <div class="row">
             <div class="col-md-2">
@@ -1261,7 +1276,7 @@ flex-direction: column;
               <hr class="hr-sm text-primary" />
   
               <!-- Text -->
-              <p class="fs-lg lh-lg text-body-emphasis mb-5 mb-md-0">Smooth, Sweet, Sensational.</p>
+              <p class="fs-lg lh-lg text-body-emphasis mb-5 mb-md-0">Naturally Sweet, Smooth Skin.</p>
             </div>
             <div class="col-md-4">
               <!-- Media -->
@@ -1312,7 +1327,7 @@ flex-direction: column;
               <hr class="hr-sm text-primary" />
   
               <!-- Text -->
-              <p class="fs-lg lh-lg text-body-emphasis mb-5 mb-md-0">Luxury, Naturally Sweetened.</p>
+              <p class="fs-lg lh-lg text-body-emphasis mb-5 mb-md-0">Pure, Natural Ingredients</p>
             </div>
             <div class="col-md-4 order-md-3">
               <!-- Media -->
@@ -1333,8 +1348,10 @@ flex-direction: column;
   
               <!-- Text -->
               <p class="body-p mb-0">
-                As the first and only sugaring studio in Luzerne County, we take pride in offering a unique, natural hair removal experience. 
-                Our commitment to using the finest ingredients ensures a smoother, less painful process, leaving your skin feeling refreshed and revitalized. 
+                If you’ve been struggling with the hassle of shaving or other methods that never quite leave you satisfied, 
+                I invite you to experience the difference with sugaring. It’s a more natural, less irritating alternative to traditional waxing, and as someone passionate about this art, 
+                I can confidently say it’s the key to softer, healthier skin. 
+                Ready to see for yourself? Book a complimentary underarm sugaring service and feel the smoothness firsthand! 
               </p>
             </div>
           </div>
@@ -1348,8 +1365,8 @@ flex-direction: column;
 
 <!--REVIEW SECTION-->
 
-<div class="container review-title">
-  <h2 class ="every-title">Our Testimonies</h2>
+<div id ="reviews"class="container review-title">
+  <h2 class ="every-title">Our Testimonials</h2>
 </div><!-- End Section Title -->
 <section class ="carousel-section">
 
@@ -1373,6 +1390,18 @@ flex-direction: column;
       <div class="swiper-slide swiper-slide--five">
        
       </div>
+      <div class="swiper-slide swiper-slide--six">
+       
+      </div>
+      <div class="swiper-slide swiper-slide--seven">
+       
+      </div>
+      <div class="swiper-slide swiper-slide--eight">
+       
+      </div>
+      <div class="swiper-slide swiper-slide--nine">
+       
+      </div>
 
     </div>
     <!-- Add Pagination -->
@@ -1387,7 +1416,7 @@ flex-direction: column;
 
 <!--CTA TRAINING SECTION-->
 <div class="event-lg collapse show bg-cover" id="eventOne" style="background-image: url(https://plus.unsplash.com/premium_photo-1698920493591-2f0ae4231172?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
-  <div class="bg-black bg-opacity-80">
+  <div id ="newsletter" class="bg-black bg-opacity-80">
     <div class="container">
       <div class="row py-10 center-cta">
         <div class="col-md-8 col-lg-5">
@@ -1397,15 +1426,16 @@ flex-direction: column;
           </h3>
 
           <!-- Heading -->
-          <h2 class="mb-3 text-white">Join the Leading Sugaring Training Community</h2>
+          <h2 class="mb-3 text-white">Stay Smooth with Sugaring Tips & Tricks</h2>
 
           <!-- Description -->
           <p class="mb-6 text-white text-opacity-75">
-            Join our Skool.com community where you'll have access to in-depth training, live sessions, PDFs, courses, and everything you need to excel in the art of sugaring and running a successful beauty business.
+            With over 4 years of experience in the beauty industry, we’re here to share exclusive content to help you master the art of sugaring. 
+            Join our community to receive expert advice, tutorials, and special offers straight to your inbox!
           </p>
 
           <!-- Button -->
-          <a style="background: #f2612b;"class="btn btn-outline-primary text-white text-primary-hover" href="#joinCommunity">Join Community</a>
+          <a style="background: #f2612b;"class="btn btn-outline-primary text-white text-primary-hover" href="#joinCommunity">Join NewsLetter</a>
         </div>
       </div>
     </div>
@@ -1417,7 +1447,7 @@ flex-direction: column;
 
 
  <!-- MENU -->
- <section class="py-7 py-md-9 body-p">
+ <section id ="services" class="py-7 py-md-9 body-p">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-md-8 col-lg-6 text-center">
@@ -1886,7 +1916,7 @@ flex-direction: column;
     </div>
   </div>
   <div class="text-center">
-    <a style="background: #f2612b;" class="btn btn-outline-primary text-white text-primary-hover" href="#joinCommunity">Join Community</a>
+    <a style="background: #f2612b; margin-top: 2rem;" class="btn btn-outline-primary text-white text-primary-hover" href="https://pocketsuite.io/link/solasugaring">All Services</a>
   </div>
 </section>
 
@@ -1974,17 +2004,19 @@ flex-direction: column;
   <!--  Section Title -->
   <div class="container section-title">
     <h2>We are Constantly Growing</h2>
-    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+    
   </div><!-- End Section Title -->
   <div class="container">
     <div class="row gy-4 align-items-center features-item">
       <div class="col-lg-5 order-2 order-lg-1" >
-        <h3>Corporis temporibus maiores provident</h3>
+        <h3>Say Goodbye to Shaving, Hello to Sugaring</h3>
         <p>
-          Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-          velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+          At Sola Sugaring, we believe in offering more than just a service — we provide an experience. For those unfamiliar with sugaring, 
+          let me explain how it can transform your skincare routine. Unlike shaving, which can be a hassle every few days, sugaring offers a solution that can leave your skin smooth 
+          for several weeks with just a quick 30-minute appointment. 
+          Our approach uses only natural ingredients, making it a kinder and more gentle method for your skin.
         </p>
-        <a href="#" class="btn btn-get-started">Get Started</a>
+        <a href="https://pocketsuite.io/link/solasugaring" class="btn btn-get-started">Book Now</a>
       </div>
       <div class="col-lg-7 order-1 order-lg-2 d-flex align-items-center">
         <div class="image-stack">
@@ -1998,14 +2030,15 @@ flex-direction: column;
         <img src="{% static 'website/images/gallery3.jpeg' %}" class="img-fluid" alt="">
       </div>
       <div class="col-lg-5 d-flex justify-content-center flex-column" >
-        <h3>Sunt consequatur ad ut est nulla</h3>
-        <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.</p>
+        <h3>Why Choose Sugaring?</h3>
+        <p>When it comes to hair removal, not all methods are created equal. Here’s why sugaring stands out:</p>
         <ul>
-          <li><i class="bi bi-check"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-          <li><i class="bi bi-check"></i><span> Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-          <li><i class="bi bi-check"></i> <span>Facilis ut et voluptatem aperiam. Autem soluta ad fugiat</span>.</li>
+          <li><i class="bi bi-check"></i> <span><strong>Gentle on Your Skin:</strong> Sugaring uses natural ingredients that are less likely to irritate sensitive skin, leaving you feeling smooth without the harshness of traditional waxing.</span></li>
+          <li><i class="bi bi-check"></i><span><strong>Longer-Lasting Results:</strong> Enjoy weeks of smooth skin after just one session, eliminating the need for frequent shaving or other treatments.</span></li>
+          <li><i class="bi bi-check"></i> <span><strong>No Sticky Residue:</strong> Unlike wax, sugar paste doesn’t adhere to live skin cells, making the removal process cleaner and less painful.</span></li>
         </ul>
-        <a href="#" class="btn btn-get-started align-self-start">Get Started</a>
+        <a href="https://pocketsuite.io/link/solasugaring" class="btn btn-get-started align-self-start">Book Now</a>
+        
       </div>
     </div><!-- Features Item -->
   </div>
@@ -2018,21 +2051,22 @@ flex-direction: column;
     <div class="container">
       <div class="row py-10 center-cta">
         <div class="col-md-8 col-lg-5">
-          <!-- Date -->
-          <h3 class="text-xs text-primary">
+           <!-- Date -->
+           <h3 class="text-xs text-primary">
             <time datetime="2017-09-30">Launch Your Journey in Beauty</time>
           </h3>
 
           <!-- Heading -->
-          <h2 class="mb-3 text-white">Join the Leading Sugaring Training Community</h2>
+          <h2 class="mb-3 text-white">Stay Smooth with Sugaring Tips & Tricks</h2>
 
           <!-- Description -->
           <p class="mb-6 text-white text-opacity-75">
-            Join our Skool.com community where you'll have access to in-depth training, live sessions, PDFs, courses, and everything you need to excel in the art of sugaring and running a successful beauty business.
+            With over 4 years of experience in the beauty industry, we’re here to share exclusive content to help you master the art of sugaring. 
+            Join our community to receive expert advice, tutorials, and special offers straight to your inbox!
           </p>
 
           <!-- Button -->
-          <a style="background: #f2612b;"class="btn btn-outline-primary text-white text-primary-hover" href="#joinCommunity">Join Community</a>
+          <a style="background: #f2612b;"class="btn btn-outline-primary text-white text-primary-hover" href="#joinCommunity">Join NewsLetter</a>
         </div>
       </div>
     </div>
@@ -2063,42 +2097,45 @@ flex-direction: column;
 
         <div class="faq-container">
           <div class="faq-item faq-active">
-            <h3><span class="num">1.</span> <span>What is sugaring, and how is it different from waxing?</span></h3>
+            <h3><span class="num">1.</span> <span>What is sugaring?</span></h3>
             <div class="faq-content">
-              <p>Sugaring is a natural hair removal technique that uses a sugar paste made of sugar, water, and lemon juice. Unlike waxing, it adheres only to dead skin cells and hair, 
-                making it less irritating and more gentle on the skin.</p>
+              <p>It’s a form of hair removal dating back to ancient Egypt. The Egyptians associated a hairless body as the epitome of beauty. A paste made of sugar, lemon, and water is used to remove the hair.</p>
             </div>
             <i class="faq-toggle bi bi-chevron-right"></i>
           </div><!-- End Faq item-->
 
           <div class="faq-item">
-            <h3><span class="num">2.</span> <span>Does sugaring hurt?</span></h3>
+            <h3><span class="num">2.</span> <span>I’ve been waxed before. Is it the same?</span></h3>
             <div class="faq-content">
-              <p>While you may feel a slight tugging as the hair is removed, sugaring is generally less painful than traditional waxing. Many clients find the discomfort reduces significantly after their first session.</p>
+              <p>No! Sugaring is way more gentle on the skin than wax. The sugar paste adapts to your body temperature, so there’s no risk of burning the skin. It only adheres to dead skin cells and hair, so there’s a lessened risk of lifting skin. Sugar can also adhere onto shorter hairs.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+         
+
+          <div class="faq-item">
+            <h3><span class="num">4.</span> <span>Is it painful?</span></h3>
+            <div class="faq-content">
+              <p>Your first session won’t feel great, but it’s tolerable! I carve out plenty of time so you’re able to take small breaks, if needed.</p>
+            </div>
+            <i class="faq-toggle bi bi-chevron-right"></i>
+          </div><!-- End Faq item-->
+
+  
+
+          <div class="faq-item">
+            <h3><span class="num">6.</span> <span>I got my period, can I still get sugared?</span></h3>
+            <div class="faq-content">
+              <p>Yes! To best prepare: Take a warm shower, take an ibuprofen 20-30 minutes before your session, and insert a new tampon or cup. I have tampons at the studio if you’re in need of one.</p>
             </div>
             <i class="faq-toggle bi bi-chevron-right"></i>
           </div><!-- End Faq item-->
 
           <div class="faq-item">
-            <h3><span class="num">3.</span> <span>How long does my hair need to be for sugaring?</span></h3>
+            <h3><span class="num">7.</span> <span>I’m pregnant, can I still get sugared?</span></h3>
             <div class="faq-content">
-              <p>Hair should be at least 1/8 inch long, or about the length of a grain of rice, for the best results. This ensures the sugar paste can effectively grasp and remove the hair.</p>
-            </div>
-            <i class="faq-toggle bi bi-chevron-right"></i>
-          </div><!-- End Faq item-->
-
-          <div class="faq-item">
-            <h3><span class="num">4.</span> <span>How often should I get sugaring done?</span></h3>
-            <div class="faq-content">
-              <p>We recommend scheduling sugaring sessions every 3-4 weeks. With regular appointments, hair will grow back finer and more sparsely, making future sessions even more comfortable.</p>
-            </div>
-            <i class="faq-toggle bi bi-chevron-right"></i>
-          </div><!-- End Faq item-->
-
-          <div class="faq-item">
-            <h3><span class="num">5.</span> <span>Is sugaring safe for sensitive skin?</span></h3>
-            <div class="faq-content">
-              <p>Yes! Sugaring is an excellent option for those with sensitive skin or prone to irritation. The natural ingredients in the sugar paste make it gentle and suitable for all skin types.</p>
+              <p>Yes, and congratulations! Sugaring during pregnancy is a great option, especially before your belly begins to grow. Please note you may be more sensitized due to the extra blood flow in your body.</p>
             </div>
             <i class="faq-toggle bi bi-chevron-right"></i>
           </div><!-- End Faq item-->
@@ -2111,6 +2148,7 @@ flex-direction: column;
   </div>
 
 </section><!-- End Faq Section -->
+
 {% if message_name %}
 <center id="thank-you-section">
   <h2>
@@ -2121,7 +2159,7 @@ flex-direction: column;
 <br><br><br>
 {% else %}
 <!-- CONTACT -->
-<section class="py-7 contact-margin">
+<section id="contact" class="py-7 contact-margin">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-12 col-md-8 col-lg-6 text-center">
@@ -2131,13 +2169,6 @@ flex-direction: column;
     </div>
     <div class="row">
       <div class="col-md-3 order-md-2">
-        <!-- Heading -->
-        <h4 class="mb-2 text-xs">Write us</h4>
-
-        <!-- Text -->
-        <p class="mb-4 font-serif">
-          <a href="mailto:admin@domain.com">info@solasugaring.com</a>
-        </p>
 
         
 
@@ -2153,7 +2184,7 @@ flex-direction: column;
         <!-- List -->
         <div class="d-flex mb-6 mb-md-0 font-serif">
       
-          <a class="d-block" href="#">
+          <a class="d-block" href="https://www.instagram.com/solasugaring/">
             <i class="fab fa-instagram"></i>
           </a>
         </div>
@@ -2203,9 +2234,9 @@ flex-direction: column;
       <section class="">
         <p class="d-flex justify-content-center align-items-center">
           <span style ="color: #393939;"class="me-3">Book an Appointment with us!</span>
-          <button data-mdb-ripple-init type="button" class="btn-footer">
-            Book Now
-          </button>
+          
+          <a style="background: #f2612b;
+  color: white;" href="https://pocketsuite.io/link/solasugaring" class="btn btn-get-started">Book Now</a>
         </p>
       </section>
       <!-- Section: CTA -->
