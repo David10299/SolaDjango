@@ -299,14 +299,29 @@ nav.scrolled .my-nav-links li a:hover {
     });
 
 
- // Close mobile menu and enable scrolling when a link is clicked
+// Close mobile menu and enable scrolling when a link is clicked
 document.querySelectorAll('.my-nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();  // Prevent default anchor behavior
     navLinks.classList.remove('my-open');  // Close the menu
     document.body.classList.remove('no-scroll');  // Enable scrolling again
     links.forEach(link => link.classList.remove("my-fade")); // Reset the fade effect
+
+    // Get the target section ID from the link's href
+    const targetId = link.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+
+    // Scroll to the section with a 50px offset
+    const offset = 150;
+    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+
+    window.scrollTo({
+      top: elementPosition,
+      behavior: 'smooth'  // Smooth scroll behavior
+    });
   });
 });
+
    
     let swiperCards = new Swiper(".custom-gallery-cards", {
         loop: true,
