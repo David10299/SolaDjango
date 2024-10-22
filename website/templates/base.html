@@ -298,6 +298,15 @@ nav.scrolled .my-nav-links li a:hover {
       });
     });
 
+
+ // Close mobile menu and enable scrolling when a link is clicked
+document.querySelectorAll('.my-nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('my-open');  // Close the menu
+    document.body.classList.remove('no-scroll');  // Enable scrolling again
+    links.forEach(link => link.classList.remove("my-fade")); // Reset the fade effect
+  });
+});
    
     let swiperCards = new Swiper(".custom-gallery-cards", {
         loop: true,
