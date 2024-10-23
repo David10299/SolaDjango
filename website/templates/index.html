@@ -810,44 +810,44 @@ flex-direction: column;
 }
 
 .swiper-slide--one {
-  background: url({% static 'website/images/review1.png' %})
+  background: url({% static 'website/images/1.svg' %})
       no-repeat 50% 50% / cover;
 }
 
 .swiper-slide--two {
-  background: url({% static 'website/images/review2.png' %})
+  background: url({% static 'website/images/2.svg' %})
       no-repeat 50% 50% / cover;
 }
 
 .swiper-slide--three {
-  background:url({% static 'website/images/review3.png' %})
+  background:url({% static 'website/images/3.svg' %})
       no-repeat 50% 50% / cover;
 }
 
 .swiper-slide--four {
-  background: url({% static 'website/images/review4.png' %})
+  background: url({% static 'website/images/4.svg' %})
       no-repeat 50% 50% / cover;
 }
 
 .swiper-slide--five {
-  background: url({% static 'website/images/review5.png' %})
+  background: url({% static 'website/images/5.svg' %})
       no-repeat 50% 50% / cover;
 }
 .swiper-slide--six {
-  background: url({% static 'website/images/review6.png' %})
+  background: url({% static 'website/images/6.svg' %})
       no-repeat 50% 50% / cover;
 }
 .swiper-slide--seven {
-  background: url({% static 'website/images/review7.png' %})
+  background: url({% static 'website/images/7.svg' %})
       no-repeat 50% 50% / cover;
 }
 
 .swiper-slide--eight {
-  background: url({% static 'website/images/review8.png' %})
+  background: url({% static 'website/images/8.svg' %})
       no-repeat 50% 50% / cover;
 }
 .swiper-slide--nine {
-  background: url({% static 'website/images/review9.png' %})
+  background: url({% static 'website/images/9.svg' %})
       no-repeat 50% 50% / cover;
 }
 
@@ -1221,6 +1221,20 @@ flex-direction: column;
   padding: 10px 0;  /* Optional: Adjust padding for spacing */
   font-size: 14px;  /* Optional: Adjust font size */
 }
+.swiper-slide {
+  transform-style: flat !important;
+}
+
+.news-img {
+  background-size: 105% !important;
+}
+
+@media (max-width: 844px) {
+    .news-img {
+        background-size: 262% !important; /* Adjust the background size for smaller screens */
+    }
+}
+
 </style>
 
 
@@ -1435,7 +1449,9 @@ flex-direction: column;
 
 
 <!--CTA TRAINING SECTION-->
-<div class="event-lg collapse show bg-cover" id="eventOne" style="background-image: url(https://plus.unsplash.com/premium_photo-1698920493591-2f0ae4231172?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
+<div class="event-lg collapse show bg-cover news-img" id="eventOne" style="
+background: url({% static 'website/images/legnews.jpeg' %});   background-position-x: 76%;
+background-position-y: 56%;">
   <div id ="newsletter" class="bg-black bg-opacity-80">
     <div class="container">
       <div class="row py-10 center-cta">
@@ -2066,7 +2082,9 @@ flex-direction: column;
 <!-- End Features Section -->
 
 <!--CTA TRAINING SECTION-->
-<div class="event-lg collapse show bg-cover" id="eventOne" style="background-image: url(https://plus.unsplash.com/premium_photo-1698920493591-2f0ae4231172?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)">
+<div class="event-lg collapse show bg-cover news-img" id="eventOne" style="
+background: url({% static 'website/images/legnews.jpeg' %});   background-position-x: 76%;
+background-position-y: 56%;">
   <div class="bg-black bg-opacity-80">
     <div class="container">
       <div class="row py-10 center-cta">
