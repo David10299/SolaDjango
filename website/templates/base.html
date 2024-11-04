@@ -22,7 +22,8 @@
   
     <link rel="stylesheet" href="{% static 'website/css/glightbox.min.css' %}">
     <link rel="stylesheet" href="{% static 'website/css/aos.css' %}">
-   
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
     <link rel="stylesheet" href="{% static 'website/css/datepicker.min.css' %}">
     <link rel="stylesheet" href="{% static 'website/css/style.css' %}">
@@ -37,6 +38,19 @@
    <!-- Jarallax (optional, remove if not using parallax effects) -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/jarallax/1.12.0/jarallax.min.js"></script>
     <style>
+      @font-face {
+            font-family: 'Lovechild';
+            src: url('{% static "website/fonts/lovechild.woff2" %}') format('woff2'),
+                 url('{% static "website/fonts/lovechild.woff" %}') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        p {
+          font-family: 'Open Sans', sans-serif !important;
+        }
+        h1, h2 {
+          font-family: 'Lovechild', serif !important;
+        }
 html{
   margin-right: -10px;
 }
