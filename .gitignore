@@ -1,0 +1,2 @@
+# ignore Django’s collected static output
+staticfiles/
