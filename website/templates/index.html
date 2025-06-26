@@ -1307,34 +1307,18 @@ flex-direction: column;
             </div>
              <!-- 2) Media col (must be col-md-4) -->
       <div class="col-md-4">
-        <div class="media-decoration media-decoration-1 mb-5 mb-md-0 position-relative">
-          <!-- keep your border exactly as before -->
-          <div class="media-decoration-border" data-jarallax-element="-40"></div>
+  <div class="media-decoration media-decoration-1 mb-5 mb-md-0 position-relative">
+    <!-- Border -->
+    <div class="media-decoration-border" data-jarallax-element="-40"></div>
 
-          <!-- replace the IMG with your VIDEO -->
-          <video
-            id="autoVideo"
-            class="media-decoration-img img-fluid"
-            autoplay
-            muted
-            loop
-            playsinline
-          >
-            <source
-              src="{% static 'website/images/video.mp4' %}"
-              type="video/mp4"
-            >
-            Your browser doesn’t support HTML5 video.
-          </video>
-
-          <button
-            id="unmuteBtn"
-            class="btn btn-light btn-sm position-absolute"
-            style="top: .5rem; right: .5rem; z-index: 10;"
-            aria-label="Toggle sound"
-          >🔇</button>
-        </div>
-      </div>
+    <!-- Image -->
+    <img
+      class="media-decoration-img img-fluid"
+      src="{% static 'website/images/image3.jpeg' %}"
+      alt="…"
+    />
+  </div>
+</div>
             <div class="col-md-5 align-self-center mx-auto">
               <!-- Heading -->
               <h2 class="mb-2"><em style="color: #f2612b;">Transform</em> Your Skin, Naturally</h2>

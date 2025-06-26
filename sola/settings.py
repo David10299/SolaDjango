@@ -20,7 +20,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    "www.sola-sugaring.com"
+    "www.sola-sugaring.com",
     "sola-sugaring.com",               # your custom domain
     "soladjagno-g8fv.onrender.com",    # Render’s app URL
 ]
