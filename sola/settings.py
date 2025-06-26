@@ -17,7 +17,13 @@ SECRET_KEY = 'django-insecure-$*jhyuk=hr^3cw-v(k1#o$_l88cqtyu596u@1nt47p1nmvw7ik
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['sola-sugaring.com', 'www.sola-sugaring.com', 'localhost']
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "www.sola-sugaring.com"
+    "sola-sugaring.com",               # your custom domain
+    "soladjagno-g8fv.onrender.com",    # Render’s app URL
+]
 
 
 
